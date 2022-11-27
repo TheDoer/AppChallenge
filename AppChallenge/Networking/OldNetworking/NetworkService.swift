@@ -96,7 +96,7 @@ struct NetworkService {
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = method.rawValue
-        urlRequest.addValue("9e43721cd8mshcda865306926f66p103b83jsnc7e578350692", forHTTPHeaderField: "x-rapidapi-key")
+        //urlRequest.addValue("9e43721cd8mshcda865306926f66p103b83jsnc7e578350692", forHTTPHeaderField: "x-rapidapi-key")
         
         if let params = parameters {
             switch method {
