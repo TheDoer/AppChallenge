@@ -46,12 +46,12 @@ enum GeneralEndpoints {
     
   // compose urls for each request
     func getURL() -> String {
-        let baseUrl = "https://api.openweathermap.org/data/2.5/"
+        //let baseUrl = "https://api.openweathermap.org/data/2.5/"
         switch self {
             case  .getCurrentWeather:
-                return "\(baseUrl)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)"
+                return "\(Config.BaseURL)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)"
             case .getFocustWeather:
-                return "\(baseUrl)/getFocustWeather"
+                return "\(Config.BaseURL)/getFocustWeather"
             
         }
     }
