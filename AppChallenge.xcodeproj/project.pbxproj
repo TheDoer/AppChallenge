@@ -14,6 +14,8 @@
 		F1F4A873292EC8BC007D45C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A872292EC8BC007D45C4 /* Assets.xcassets */; };
 		F1F4A876292EC8BC007D45C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A874292EC8BC007D45C4 /* LaunchScreen.storyboard */; };
 		F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F62975293204C1008D2B78 /* WeatherResponse.swift */; };
+		F1F6297929335504008D2B78 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297829335504008D2B78 /* NetworkService.swift */; };
+		F1F6297B29335822008D2B78 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297A29335822008D2B78 /* Route.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F1F4A875292EC8BC007D45C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1F4A877292EC8BC007D45C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1F62975293204C1008D2B78 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		F1F6297829335504008D2B78 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F1F6297A29335822008D2B78 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 		F1F6297729333DD0008D2B78 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F1F6297829335504008D2B78 /* NetworkService.swift */,
+				F1F6297A29335822008D2B78 /* Route.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -173,8 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F6297929335504008D2B78 /* NetworkService.swift in Sources */,
 				F1F4A86E292EC8B9007D45C4 /* ViewController.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
+				F1F6297B29335822008D2B78 /* Route.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
 				F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */,
 			);
