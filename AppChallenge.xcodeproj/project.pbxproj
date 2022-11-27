@@ -13,6 +13,7 @@
 		F1F4A871292EC8B9007D45C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A86F292EC8B9007D45C4 /* Main.storyboard */; };
 		F1F4A873292EC8BC007D45C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A872292EC8BC007D45C4 /* Assets.xcassets */; };
 		F1F4A876292EC8BC007D45C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A874292EC8BC007D45C4 /* LaunchScreen.storyboard */; };
+		F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F62975293204C1008D2B78 /* WeatherResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F1F4A872292EC8BC007D45C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1F4A875292EC8BC007D45C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1F4A877292EC8BC007D45C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1F62975293204C1008D2B78 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		F1EFB860292F98E600BAEECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1F62975293204C1008D2B78 /* WeatherResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,6 +65,7 @@
 		F1F4A85D292EC8B9007D45C4 = {
 			isa = PBXGroup;
 			children = (
+				F1F6297729333DD0008D2B78 /* Networking */,
 				F1F4A868292EC8B9007D45C4 /* AppChallenge */,
 				F1F4A867292EC8B9007D45C4 /* Products */,
 			);
@@ -89,6 +93,13 @@
 				F1F4A877292EC8BC007D45C4 /* Info.plist */,
 			);
 			path = AppChallenge;
+			sourceTree = "<group>";
+		};
+		F1F6297729333DD0008D2B78 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				F1F4A86E292EC8B9007D45C4 /* ViewController.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
+				F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
