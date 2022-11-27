@@ -16,6 +16,9 @@
 		F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F62975293204C1008D2B78 /* WeatherResponse.swift */; };
 		F1F6297929335504008D2B78 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297829335504008D2B78 /* NetworkService.swift */; };
 		F1F6297B29335822008D2B78 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297A29335822008D2B78 /* Route.swift */; };
+		F1F6297D2933592B008D2B78 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297C2933592B008D2B78 /* Method.swift */; };
+		F1F6297F2933595A008D2B78 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6297E2933595A008D2B78 /* APIResponse.swift */; };
+		F1F6298129335B0C008D2B78 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6298029335B0C008D2B78 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		F1F62975293204C1008D2B78 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		F1F6297829335504008D2B78 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F1F6297A29335822008D2B78 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		F1F6297C2933592B008D2B78 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		F1F6297E2933595A008D2B78 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		F1F6298029335B0C008D2B78 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,9 @@
 			children = (
 				F1F6297829335504008D2B78 /* NetworkService.swift */,
 				F1F6297A29335822008D2B78 /* Route.swift */,
+				F1F6297C2933592B008D2B78 /* Method.swift */,
+				F1F6297E2933595A008D2B78 /* APIResponse.swift */,
+				F1F6298029335B0C008D2B78 /* AppError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -181,9 +190,12 @@
 			files = (
 				F1F6297929335504008D2B78 /* NetworkService.swift in Sources */,
 				F1F4A86E292EC8B9007D45C4 /* ViewController.swift in Sources */,
+				F1F6298129335B0C008D2B78 /* AppError.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
 				F1F6297B29335822008D2B78 /* Route.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
+				F1F6297F2933595A008D2B78 /* APIResponse.swift in Sources */,
+				F1F6297D2933592B008D2B78 /* Method.swift in Sources */,
 				F1F62976293204C1008D2B78 /* WeatherResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
