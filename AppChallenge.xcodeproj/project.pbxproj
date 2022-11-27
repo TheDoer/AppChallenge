@@ -13,9 +13,13 @@
 		F1470DCC293388FB00DDA249 /* NativeRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DCB293388FB00DDA249 /* NativeRequestable.swift */; };
 		F1470DD0293389F700DDA249 /* GeneralEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DCF293389F700DDA249 /* GeneralEndpoints.swift */; };
 		F1470DD22933927800DDA249 /* generalServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD12933927800DDA249 /* generalServiceable.swift */; };
+		F1470DD52933AC1E00DDA249 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD42933AC1E00DDA249 /* Coordinator.swift */; };
+		F1470DD72933AFF800DDA249 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */; };
+		F1470DD92933B3AD00DDA249 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */; };
+		F1470DDB2933B3FE00DDA249 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DDA2933B3FE00DDA249 /* MainViewModel.swift */; };
 		F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */; };
 		F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */; };
-		F1F4A86E292EC8B9007D45C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86D292EC8B9007D45C4 /* ViewController.swift */; };
+		F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */; };
 		F1F4A871292EC8B9007D45C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A86F292EC8B9007D45C4 /* Main.storyboard */; };
 		F1F4A873292EC8BC007D45C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A872292EC8BC007D45C4 /* Assets.xcassets */; };
 		F1F4A876292EC8BC007D45C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F4A874292EC8BC007D45C4 /* LaunchScreen.storyboard */; };
@@ -35,10 +39,14 @@
 		F1470DCB293388FB00DDA249 /* NativeRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequestable.swift; sourceTree = "<group>"; };
 		F1470DCF293389F700DDA249 /* GeneralEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralEndpoints.swift; sourceTree = "<group>"; };
 		F1470DD12933927800DDA249 /* generalServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generalServiceable.swift; sourceTree = "<group>"; };
+		F1470DD42933AC1E00DDA249 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F1470DDA2933B3FE00DDA249 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		F1F4A866292EC8B9007D45C4 /* AppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1F4A86D292EC8B9007D45C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F1F4A870292EC8B9007D45C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1F4A872292EC8BC007D45C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1F4A875292EC8BC007D45C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +107,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F1470DD32933AAFF00DDA249 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F1470DD42933AC1E00DDA249 /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		F1EFB860292F98E600BAEECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				F1F4A86F292EC8B9007D45C4 /* Main.storyboard */,
+				F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */,
+				F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */,
+				F1470DDA2933B3FE00DDA249 /* MainViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 		F1F4A868292EC8B9007D45C4 /* AppChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F1470DD32933AAFF00DDA249 /* Protocol */,
 				F1470DCE2933898900DDA249 /* Services */,
 				F1470DCD2933895D00DDA249 /* Endpoints */,
 				F1470DC32933854500DDA249 /* Config */,
@@ -152,10 +172,10 @@
 				F1EFB860292F98E600BAEECE /* Model */,
 				F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */,
 				F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */,
-				F1F4A86D292EC8B9007D45C4 /* ViewController.swift */,
 				F1F4A872292EC8BC007D45C4 /* Assets.xcassets */,
 				F1F4A874292EC8BC007D45C4 /* LaunchScreen.storyboard */,
 				F1F4A877292EC8BC007D45C4 /* Info.plist */,
+				F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */,
 			);
 			path = AppChallenge;
 			sourceTree = "<group>";
@@ -258,17 +278,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F6297929335504008D2B78 /* NetworkService.swift in Sources */,
-				F1F4A86E292EC8B9007D45C4 /* ViewController.swift in Sources */,
+				F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */,
 				F1F6298129335B0C008D2B78 /* AppError.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
 				F1470DC52933855700DDA249 /* Config.swift in Sources */,
+				F1470DD72933AFF800DDA249 /* ApplicationCoordinator.swift in Sources */,
 				F1F6297B29335822008D2B78 /* Route.swift in Sources */,
 				F1470DD22933927800DDA249 /* generalServiceable.swift in Sources */,
 				F1470DC8293388AE00DDA249 /* NativeRequest.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
 				F1F6297F2933595A008D2B78 /* APIResponse.swift in Sources */,
+				F1470DD52933AC1E00DDA249 /* Coordinator.swift in Sources */,
 				F1F6297D2933592B008D2B78 /* Method.swift in Sources */,
 				F1470DCC293388FB00DDA249 /* NativeRequestable.swift in Sources */,
+				F1470DD92933B3AD00DDA249 /* MainCoordinator.swift in Sources */,
+				F1470DDB2933B3FE00DDA249 /* MainViewModel.swift in Sources */,
 				F1470DD0293389F700DDA249 /* GeneralEndpoints.swift in Sources */,
 				F1470DCA293388D800DDA249 /* Requestable.swift in Sources */,
 				F1F6298429336221008D2B78 /* String+Extension.swift in Sources */,
