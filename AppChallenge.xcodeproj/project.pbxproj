@@ -161,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F1470DD32933AAFF00DDA249 /* Protocol */,
+				F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */,
 				F1470DCE2933898900DDA249 /* Services */,
 				F1470DCD2933895D00DDA249 /* Endpoints */,
 				F1470DC32933854500DDA249 /* Config */,
@@ -175,7 +176,6 @@
 				F1F4A872292EC8BC007D45C4 /* Assets.xcassets */,
 				F1F4A874292EC8BC007D45C4 /* LaunchScreen.storyboard */,
 				F1F4A877292EC8BC007D45C4 /* Info.plist */,
-				F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */,
 			);
 			path = AppChallenge;
 			sourceTree = "<group>";
