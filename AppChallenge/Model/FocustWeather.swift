@@ -40,7 +40,7 @@ struct List: Codable {
 
 // MARK: - Main
 struct MainFocust: Codable {
-    let temp: Double
+    let temp: Double?
     let feelsLike: Double?
     let tempMin: Double?
     let tempMax: Double?
