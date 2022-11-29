@@ -15,9 +15,6 @@ class ApplicationCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     
-    let hasSeenOnboarding = CurrentValueSubject<Bool,Never>(false)
-    var subscriptions = Set<AnyCancellable>()
-    
     init(window: UIWindow) {
         self.window = window
     }

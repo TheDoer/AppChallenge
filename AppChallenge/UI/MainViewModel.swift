@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CoreLocation
 
 class MainViewModel: ObservableObject {
     var mainCoordinator: MainCoordinator!
