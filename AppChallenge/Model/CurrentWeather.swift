@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - WeatherResponse
-public struct WeatherResponse: Codable {
+public struct CurrentWeather: Codable {
     let weather: [WeatherCurrent]?
     let base: String?
     let main: Main?
