@@ -25,8 +25,8 @@ public struct CurrentWeather: Codable {
 public struct Main: Codable {
     let temp: Double?
     let feelsLike: Double?
-    let tempMin: Double?
-    let tempMax: Double?
+    let temp_min: Double?
+    let temp_max: Double?
     let pressure: Int?
     let humidity: Int?
     let seaLevel: Int?
