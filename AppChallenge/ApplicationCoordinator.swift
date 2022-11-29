@@ -19,9 +19,7 @@ class ApplicationCoordinator: Coordinator {
     var subscriptions = Set<AnyCancellable>()
     
     init(window: UIWindow) {
-        
         self.window = window
-        
     }
     
     func start() {
