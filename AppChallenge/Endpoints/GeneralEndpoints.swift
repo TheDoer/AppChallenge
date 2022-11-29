@@ -49,10 +49,10 @@ enum GeneralEndpoints {
         switch self {
               //  \(Config.BaseURL)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)
             case .getCurrentWeather:
-                return "https://api.openweathermap.org/data/2.5/weather?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c"
+                return "https://api.openweathermap.org/data/2.5/weather?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
             case .getFocustWeather:
                 //api.openweathermap.org/data/2.5/forecast?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c
-                return "https://api.openweathermap.org/data/2.5/forecast?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c"
+                return "https://api.openweathermap.org/data/2.5/forecast?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
             
         }
     }
