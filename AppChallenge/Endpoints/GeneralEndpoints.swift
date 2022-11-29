@@ -46,12 +46,13 @@ enum GeneralEndpoints {
     
   // compose urls for each request
     func getURL() -> String {
-        //let baseUrl = "https://api.openweathermap.org/data/2.5/"
         switch self {
-            case  .getCurrentWeather:
-                return "\(Config.BaseURL)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)"
+              //  \(Config.BaseURL)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)
+            case .getCurrentWeather:
+                return "https://api.openweathermap.org/data/2.5/weather?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c"
             case .getFocustWeather:
-                return "\(Config.BaseURL)/getFocustWeather"
+                //api.openweathermap.org/data/2.5/forecast?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c
+                return "https://api.openweathermap.org/data/2.5/forecast?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c"
             
         }
     }

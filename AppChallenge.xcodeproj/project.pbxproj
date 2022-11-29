@@ -17,6 +17,9 @@
 		F1470DD72933AFF800DDA249 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */; };
 		F1470DD92933B3AD00DDA249 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */; };
 		F1470DDB2933B3FE00DDA249 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DDA2933B3FE00DDA249 /* MainViewModel.swift */; };
+		F1470DDD29348CA900DDA249 /* FocustWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DDC29348CA900DDA249 /* FocustWeather.swift */; };
+		F1470DE029354B8100DDA249 /* WeatherFocustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DDF29354B8100DDA249 /* WeatherFocustTableViewCell.swift */; };
+		F1470DE32935503D00DDA249 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DE22935503D00DDA249 /* DateFormatter.swift */; };
 		F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */; };
 		F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */; };
 		F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */; };
@@ -43,6 +46,9 @@
 		F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F1470DDA2933B3FE00DDA249 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F1470DDC29348CA900DDA249 /* FocustWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocustWeather.swift; sourceTree = "<group>"; };
+		F1470DDF29354B8100DDA249 /* WeatherFocustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFocustTableViewCell.swift; sourceTree = "<group>"; };
+		F1470DE22935503D00DDA249 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F1F4A866292EC8B9007D45C4 /* AppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,10 +121,27 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		F1470DDE29354B4700DDA249 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F1470DDF29354B8100DDA249 /* WeatherFocustTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F1470DE12935502800DDA249 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				F1470DE22935503D00DDA249 /* DateFormatter.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
 		F1EFB860292F98E600BAEECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F1F62975293204C1008D2B78 /* WeatherResponse.swift */,
+				F1470DDC29348CA900DDA249 /* FocustWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +156,7 @@
 		F1EFB862292F992800BAEECE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F1470DDE29354B4700DDA249 /* Cell */,
 				F1F4A86F292EC8B9007D45C4 /* Main.storyboard */,
 				F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */,
 				F1470DD82933B3AD00DDA249 /* MainCoordinator.swift */,
@@ -160,6 +184,7 @@
 		F1F4A868292EC8B9007D45C4 /* AppChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F1470DE12935502800DDA249 /* Extras */,
 				F1470DD32933AAFF00DDA249 /* Protocol */,
 				F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */,
 				F1470DCE2933898900DDA249 /* Services */,
@@ -284,6 +309,7 @@
 				F1470DC52933855700DDA249 /* Config.swift in Sources */,
 				F1470DD72933AFF800DDA249 /* ApplicationCoordinator.swift in Sources */,
 				F1F6297B29335822008D2B78 /* Route.swift in Sources */,
+				F1470DE32935503D00DDA249 /* DateFormatter.swift in Sources */,
 				F1470DD22933927800DDA249 /* generalServiceable.swift in Sources */,
 				F1470DC8293388AE00DDA249 /* NativeRequest.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
@@ -292,6 +318,8 @@
 				F1F6297D2933592B008D2B78 /* Method.swift in Sources */,
 				F1470DCC293388FB00DDA249 /* NativeRequestable.swift in Sources */,
 				F1470DD92933B3AD00DDA249 /* MainCoordinator.swift in Sources */,
+				F1470DDD29348CA900DDA249 /* FocustWeather.swift in Sources */,
+				F1470DE029354B8100DDA249 /* WeatherFocustTableViewCell.swift in Sources */,
 				F1470DDB2933B3FE00DDA249 /* MainViewModel.swift in Sources */,
 				F1470DD0293389F700DDA249 /* GeneralEndpoints.swift in Sources */,
 				F1470DCA293388D800DDA249 /* Requestable.swift in Sources */,

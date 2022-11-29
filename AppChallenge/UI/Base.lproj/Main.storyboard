@@ -11,7 +11,7 @@
         <!--Main View Controller-->
         <scene sceneID="FoN-HU-dK7">
             <objects>
-                <viewController id="A6D-TR-mhx" customClass="MainViewController" customModule="AppChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A6D-TR-mhx" customClass="MainViewController" customModule="AppChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LUa-I7-0tv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,14 +135,14 @@
                                 <rect key="frame" x="0.0" y="492" width="393" height="360"/>
                                 <color key="backgroundColor" red="0.3541111052" green="0.43838134410000001" blue="0.4745159149" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="83" id="nYa-BQ-iNV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherFocustTableViewCell" rowHeight="83" id="nYa-BQ-iNV" customClass="WeatherFocustTableViewCell" customModule="AppChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nYa-BQ-iNV" id="otU-SX-gqO">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czu-VU-822">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czu-VU-822">
                                                     <rect key="frame" x="50.999999999999993" y="31" width="67.333333333333314" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,8 +174,17 @@
                                                 <constraint firstItem="gNc-lM-4zW" firstAttribute="centerX" secondItem="otU-SX-gqO" secondAttribute="centerX" id="p2f-XG-51I"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="focustDateLabel" destination="Czu-VU-822" id="V31-Bg-Adj"/>
+                                            <outlet property="tempLabel" destination="UPY-tn-OzZ" id="mfO-Z4-mvP"/>
+                                            <outlet property="weatherIcon" destination="gNc-lM-4zW" id="zZc-N5-2DP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A6D-TR-mhx" id="NzP-UU-HEL"/>
+                                    <outlet property="delegate" destination="A6D-TR-mhx" id="oZr-x9-zff"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gjb-HX-xWY"/>
@@ -203,6 +212,9 @@
                             <constraint firstItem="gjb-HX-xWY" firstAttribute="trailing" secondItem="Mk1-Ai-zp3" secondAttribute="trailing" constant="10" id="yeL-7k-NiI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="focustTableView" destination="8zL-UM-Arw" id="EAN-d4-6WZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ida-uI-spu" sceneMemberID="firstResponder"/>
             </objects>
