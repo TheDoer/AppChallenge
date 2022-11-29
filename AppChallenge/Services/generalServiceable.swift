@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol generalServiceable {
-    func getCurrentWeather() -> AnyPublisher<[WeatherResponse], NetworkError>
-    func getFocustWeather() -> AnyPublisher<FocustWeather, NetworkError>
+    func getCurrentWeather() -> AnyPublisher<CurrentWeather, Error>
+    func getFocustWeather() -> AnyPublisher<FocustWeather, Error>
     
 }
 
@@ -23,13 +23,13 @@ class GeneralService: generalServiceable {
         self.networkRequest = networkRequest
     }
     
-    func getCurrentWeather() -> AnyPublisher<[WeatherResponse], NetworkError> {
+    func getCurrentWeather() -> AnyPublisher<CurrentWeather, Error> {
         let endpoint = GeneralEndpoints.getCurrentWeather
         let request = endpoint.createRequest()
         return self.networkRequest.request(request)
     }
     
-    func getFocustWeather() -> AnyPublisher<FocustWeather, NetworkError> {
+    func getFocustWeather() -> AnyPublisher<FocustWeather, Error> {
         let endpoint = GeneralEndpoints.getFocustWeather
         let request = endpoint.createRequest()
         return self.networkRequest.request(request)

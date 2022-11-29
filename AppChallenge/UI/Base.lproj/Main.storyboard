@@ -41,16 +41,16 @@
                                         <rect key="frame" x="20" y="16" width="353" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SF2-Jw-q6H">
-                                                <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vo7-k2-NhS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="23.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="23.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX2-mB-WJi">
-                                                        <rect key="frame" x="0.0" y="23.666666666666686" width="34.333333333333336" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX2-mB-WJi">
+                                                        <rect key="frame" x="0.0" y="23.666666666666686" width="34.666666666666664" height="20.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="Xz9-R0-ZSB"/>
                                                         </constraints>
@@ -177,7 +177,7 @@
                                         <connections>
                                             <outlet property="focustDateLabel" destination="Czu-VU-822" id="V31-Bg-Adj"/>
                                             <outlet property="tempLabel" destination="UPY-tn-OzZ" id="mfO-Z4-mvP"/>
-                                            <outlet property="weatherIcon" destination="gNc-lM-4zW" id="zZc-N5-2DP"/>
+                                            <outlet property="weatherIconImageView" destination="gNc-lM-4zW" id="25U-VS-DZ3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -213,7 +213,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentTempDescription" destination="Mk1-Ai-zp3" id="DgA-jV-seg"/>
+                        <outlet property="currentTempLabel" destination="SFl-EV-QeQ" id="grX-qQ-uiq"/>
                         <outlet property="focustTableView" destination="8zL-UM-Arw" id="EAN-d4-6WZ"/>
+                        <outlet property="maxTempLabel" destination="cdW-NK-KlB" id="q4w-jd-sql"/>
+                        <outlet property="miniTempLabel" destination="vo7-k2-NhS" id="5Ve-gV-Hp3"/>
+                        <outlet property="tempLabel" destination="p2T-Al-xFa" id="Uu5-FD-sU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ida-uI-spu" sceneMemberID="firstResponder"/>

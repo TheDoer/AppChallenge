@@ -11,7 +11,7 @@ import Foundation
 public class NativeRequestable: Requestable {
     public var requestTimeOut: Float = 30
 
-    public func request<T>(_ req: NetworkRequest) -> AnyPublisher<T, NetworkError>
+    public func request<T>(_ req: NetworkRequest) -> AnyPublisher<T, Error>
      where T: Decodable, T: Encodable {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.timeoutIntervalForRequest = TimeInterval(req.requestTimeOut ?? requestTimeOut)
@@ -19,7 +19,7 @@ public class NativeRequestable: Requestable {
         guard let url = URL(string: req.url) else {
             // Return a fail publisher if the url is invalid
             return AnyPublisher(
-                Fail<T, NetworkError>(error: NetworkError.badURL("Invalid Url"))
+                Fail<T, Error>(error: NetworkError.badURL("Invalid Url"))
             )
         }
         // We use the dataTaskPublisher from the URLSession which gives us a publisher to play around with.

@@ -11,28 +11,45 @@ import Combine
 class MainViewModel: ObservableObject {
     var mainCoordinator: MainCoordinator!
     
-    let currentWeather = CurrentValueSubject<[WeatherResponse], Never>([WeatherResponse]())
-    let focustWeather = CurrentValueSubject<[List], Never>([List]())
-    
-    let service = GeneralService(networkRequest: NativeRequestable())
-    
-    var subscriptions = Set<AnyCancellable>()
-    
-    func getCurrentWeather() {
-        service.getCurrentWeather()
-            .sink { (completion) in
-                switch completion {
-                    case .failure(let error): print("error: - CurrentWeather \(error.localizedDescription)")
-                    case .finished:
-                    break
-                }
-            } receiveValue: { response in
-                self.currentWeather.send(response)
-            }
-            .store(in: &subscriptions)
+    enum Input {
+        case viewDidAppear
     }
     
-    func getFocustWeatheer() {
+    enum Output {
+        case fetchCurrentWeatherDidFail(error: Error)
+        case fetchCurrentWeatherDidSucceed(weather: CurrentWeather)
+    }
+    
+    //let currentWeather = CurrentValueSubject<[WeatherCurrent], Never>([WeatherCurrent]())
+    let focustWeather = CurrentValueSubject<[List], Never>([List]())
+    private let output: PassthroughSubject<Output, Never> = .init()
+    
+    let service = GeneralService(networkRequest: NativeRequestable())
+
+    var subscriptions = Set<AnyCancellable>()
+    
+    
+    func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
+      input.sink { [weak self] event in
+        switch event {
+        case .viewDidAppear:
+          self?.handleGetCurrentWeather()
+        }
+      }.store(in: &subscriptions)
+      return output.eraseToAnyPublisher()
+    }
+    
+    private func handleGetCurrentWeather() {
+        service.getCurrentWeather().sink { [weak self] completion in
+        if case .failure(let error) = completion {
+            self?.output.send(.fetchCurrentWeatherDidFail(error: error))
+        }
+      } receiveValue: { [weak self] current in
+          self?.output.send(.fetchCurrentWeatherDidSucceed(weather: current))
+      }.store(in: &subscriptions)
+    }
+    
+    func getFocustWeather() {
         service.getFocustWeather()
             .sink { (completion) in
                 switch completion {
@@ -42,9 +59,10 @@ class MainViewModel: ObservableObject {
                 }
             } receiveValue: { (response) in
                 self.focustWeather.send(response.list ?? [List]())
-                print(response.list ?? [List]())
             }
             .store(in: &subscriptions)
     }
+    
+    
   
 }
