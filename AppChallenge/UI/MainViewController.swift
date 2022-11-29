@@ -11,6 +11,7 @@ import Combine
 class MainViewController: UIViewController {
     
    
+    @IBOutlet weak var backgroundWeatherImageView: UIImageView!
     
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentTempDescription: UILabel!
@@ -18,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var miniTempLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
+    
     
     var viewModel = MainViewModel()
     var subscriptions = Set<AnyCancellable>()
@@ -31,7 +33,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
        
         fetchFocustWeatherData()
-        Bind()
+        bindFocust()
         bindCurrent()
        
     }
@@ -42,38 +44,36 @@ class MainViewController: UIViewController {
     }
     
     private func  bindCurrent() {
+        self.showSpinner()
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         output
             .receive(on: DispatchQueue.main)
             .sink { [weak self ] event in
                 switch event {
                     case .fetchCurrentWeatherDidSucceed(let current):
+                        self?.removeSpinner()
                         self?.tempLabel.text = "\(Double(current.main?.temp ?? 0).rounded(toPlaces: 0))°"
                         self?.currentTempDescription.text = current.weather?[0].main
-                        
-                        self?.miniTempLabel.text = "\(Double(current.main?.tempMin ?? 0 ?? 0).rounded(toPlaces: 0))°"
+
+                        self?.miniTempLabel.text = "\(Double(current.main?.temp_min ?? 0 ).rounded(toPlaces: 0))°"
                         self?.currentTempLabel.text = "\(Double(current.main?.temp ?? 0).rounded(toPlaces: 0))°"
-                        self?.maxTempLabel.text = "\(Double(current.main?.tempMax ?? 0).rounded(toPlaces: 0))°"
+                        self?.maxTempLabel.text = "\(Double(current.main?.temp_max ?? 0).rounded(toPlaces: 0))°"
                         
+                        self?.setBackgroundImage(weather: current.weather?[0].main)
                         
                     case .fetchCurrentWeatherDidFail(error: let error):
+                        self?.removeSpinner()
+                        //show and error dialog here to show the error
                         self?.tempLabel.text = error.localizedDescription
                 }
             }.store(in: &subscriptions)
-        
     }
-    
-    
-    
-    
+ 
     func fetchFocustWeatherData() {
         viewModel.getFocustWeather()
     }
     
-    
-    
-    
-    private func Bind() {
+    private func bindFocust() {
         viewModel
             .focustWeather
             .receive(on: DispatchQueue.main)
@@ -81,6 +81,23 @@ class MainViewController: UIViewController {
                 self.focustTableView.reloadData()
             }.store(in: &subscriptions)
     }
+    
+    func setBackgroundImage(weather: String?) {
+        switch weather {
+            case "Sunny":
+                backgroundWeatherImageView.image = UIImage(named: "forest_sunny")
+            case "Clouds":
+                backgroundWeatherImageView.image = UIImage(named: "forest_cloudy")
+            case  "Rain":
+               backgroundWeatherImageView.image = UIImage(named: "forest_rainy")
+                
+             default:
+                backgroundWeatherImageView.image = UIImage(named: "forest_rainy")
+            
+        }
+        
+    }
+    
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {

@@ -131,7 +131,7 @@
                                     <constraint firstAttribute="height" constant="1" id="PAK-lj-VTm"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-UM-Arw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-UM-Arw">
                                 <rect key="frame" x="0.0" y="492" width="393" height="360"/>
                                 <color key="backgroundColor" red="0.3541111052" green="0.43838134410000001" blue="0.4745159149" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -213,6 +213,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundWeatherImageView" destination="Ddc-vM-OTA" id="7R5-ee-il7"/>
                         <outlet property="currentTempDescription" destination="Mk1-Ai-zp3" id="DgA-jV-seg"/>
                         <outlet property="currentTempLabel" destination="SFl-EV-QeQ" id="grX-qQ-uiq"/>
                         <outlet property="focustTableView" destination="8zL-UM-Arw" id="EAN-d4-6WZ"/>
