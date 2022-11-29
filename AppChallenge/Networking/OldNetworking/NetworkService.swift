@@ -13,11 +13,11 @@ struct NetworkService {
     
     private init() {}
     
-    func fetchDailyWeatherData(completion: @escaping (Result<[Weather],Error>) -> Void){
-        request(route: .fetchDailyWeather, method: .get, parameters: nil, completion: completion)
-        
-        
-    }
+//    func fetchDailyWeatherData(completion: @escaping (Result<[Weather],Error>) -> Void){
+//        request(route: .fetchDailyWeather, method: .get, parameters: nil, completion: completion)
+//
+//
+//    }
     
     private func request<T: Decodable>(route: Route,
                                      method: Method,
