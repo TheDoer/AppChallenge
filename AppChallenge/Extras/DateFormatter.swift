@@ -7,17 +7,6 @@
 
 import Foundation
 
-//func getDayForDate(_ date: Date?) -> String {
-//    guard let inputDate = date else {
-//        return ""
-//    }
-//    let formatter = DateFormatter()
-//    formatter.doesRelativeDateFormatting = true
-//    formatter.dateStyle = .short
-//    formatter.timeStyle = .short
-//    return formatter.string(from: inputDate)
-//}
-
 func getDayForDate(_ date: Date?) -> String {
     guard let inputDate = date else {
         return ""
