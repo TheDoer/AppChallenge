@@ -78,6 +78,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="focustDateLabel" destination="QU9-P9-vxo" id="H7f-yM-HcT"/>
+                                            <outlet property="tempLabel" destination="XqL-ZA-xVw" id="PRe-Mc-VFm"/>
+                                            <outlet property="weatherIconImageView" destination="x56-A5-ch8" id="9Fj-dr-vau"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

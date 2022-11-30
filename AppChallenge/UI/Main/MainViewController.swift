@@ -22,15 +22,7 @@ class MainViewController: UIViewController, WeatherDelegate {
     @IBOutlet weak var maxTempLabel: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
-    //    @IBOutlet weak var largeCurrentTemperatureLabel: UILabel!
-//    @IBOutlet weak var currentConditionLabel: UILabel!
-//    @IBOutlet weak var minimumTemperatureLabel: UILabel!
-//    @IBOutlet weak var smallCurrentTemperatureLabel: UILabel!
-//    @IBOutlet weak var maximumTemperatureLabel: UILabel!
-//
-//    @IBOutlet weak var backgroundImage: UIImageView!
-    
-    
+   
     let locationManager = CLLocationManager()
     
     let viewModel = WeatherScreenViewModel()
