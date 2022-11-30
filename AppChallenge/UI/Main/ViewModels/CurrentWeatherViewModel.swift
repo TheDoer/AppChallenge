@@ -23,7 +23,7 @@ class CurrentWeatherViewModel {
     
     private var dispatchGroup = DispatchGroup()
     
-    var currentTemperature: String {
+    var currentTemp: String {
         if let currentWeather = currentWeather {
             return currentWeather.main.temp.toStringWithZeroDecimalPlaces() + "°"
         }
@@ -32,7 +32,7 @@ class CurrentWeatherViewModel {
         }
     }
     
-    var minimumTemperature: String {
+    var miniTemp: String {
         if let currentWeather = currentWeather {
             return currentWeather.main.tempMin.toStringWithZeroDecimalPlaces() + "°"
         }
@@ -41,7 +41,7 @@ class CurrentWeatherViewModel {
         }
     }
     
-    var maximumTemperature: String {
+    var maxTemp: String {
         if let currentWeather = currentWeather {
             return currentWeather.main.tempMax.toStringWithZeroDecimalPlaces() + "°"
         }
@@ -50,7 +50,7 @@ class CurrentWeatherViewModel {
         }
     }
         
-    func currentCondition() -> String {
+    func `default`() -> String {
         if let currentWeather = currentWeather, let condition = CurrentCondition(rawValue: currentWeather.weather[0].main) {
             return condition.displayName
         }
@@ -136,13 +136,13 @@ class CurrentWeatherViewModel {
     }
     
     private func createIndexSet(numberOfItems: Int) -> IndexSet {
-        let step = (numberOfItems) / 5
-        var value = step
+        let move = (numberOfItems) / 5
+        var value = move
         var array = [Int]()
         
         for _ in 0..<5 {
             array.append(value-1)
-            value = value + step
+            value = value + move
         }
         
         return IndexSet(array)

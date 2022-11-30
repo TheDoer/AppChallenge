@@ -77,17 +77,6 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		F1470DC62933884900DDA249 /* OldNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				F1F6297A29335822008D2B78 /* Route.swift */,
-				F1F6297E2933595A008D2B78 /* APIResponse.swift */,
-				F1F6297829335504008D2B78 /* NetworkService.swift */,
-				F1F6298029335B0C008D2B78 /* AppError.swift */,
-			);
-			path = OldNetworking;
-			sourceTree = "<group>";
-		};
 		F1470DD32933AAFF00DDA249 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +195,10 @@
 		F1F6297729333DD0008D2B78 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				F1470DC62933884900DDA249 /* OldNetworking */,
+				F1F6297A29335822008D2B78 /* Route.swift */,
+				F1F6297E2933595A008D2B78 /* APIResponse.swift */,
+				F1F6297829335504008D2B78 /* NetworkService.swift */,
+				F1F6298029335B0C008D2B78 /* AppError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

@@ -33,6 +33,7 @@ class MainViewController: UIViewController, WeatherDelegate {
     }
     
     func setUpLocation(){
+        showSpinner()
         viewModel.networkService = NetworkService()
         self.locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -41,11 +42,11 @@ class MainViewController: UIViewController, WeatherDelegate {
     }
     
     private func setupViews() {
-        mainTempLabel.text = viewModel.currentTemperature
-        currentWeatherDescriptionLabel.text = viewModel.currentCondition()
-        miniTempLabel.text = viewModel.minimumTemperature
-        currentTempLabel.text = viewModel.currentTemperature
-        maxTempLabel.text = viewModel.maximumTemperature
+        mainTempLabel.text = viewModel.currentTemp
+        currentWeatherDescriptionLabel.text = viewModel.default()
+        miniTempLabel.text = viewModel.miniTemp
+        currentTempLabel.text = viewModel.currentTemp
+        maxTempLabel.text = viewModel.maxTemp
         backgroundImage.image = UIImage(named: viewModel.backgroundImageName())
         let timeStmp = generateCurrentTimeStamp()
         lastUpdatedLabel.text = "last updated: \(timeStmp)"
@@ -58,6 +59,7 @@ class MainViewController: UIViewController, WeatherDelegate {
     }
     
     func errorFetchingWeatherData(error: AppError) {
+        removeSpinner()
         var errorMessage = ""
         
         switch error {
