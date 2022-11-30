@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import CoreLocation
 
-enum Route {
-    static let baseUrl = "https://api.openweathermap.org/data/2.5"
+struct Urls {
     
-    case fetchDailyWeather
+    /// This function generates and return a url string for pagination purpopes
+    /// - Parameter pageNumber: pagination page number
+    /// - Returns: url string
+    static func currentWeatherUrl(location: CLLocationCoordinate2D) -> String {
+        return "https://api.openweathermap.org/data/2.5/weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=d23516d0b2787144caf23421d5ec4515&units=metric"
+    }
     
-    var description: String {
-        switch self {
-            case .fetchDailyWeather:
-                return "/weather?lat=-17.8216&lon=31.0492&appid=87461c4c288bfbf9413372ba35e10d7c"
-        }
+    static func forecastWeather(location: CLLocationCoordinate2D) -> String {
+        return "https://api.openweathermap.org/data/2.5/forecast?lat=\(location.latitude)&lon=\(location.longitude)&appid=d23516d0b2787144caf23421d5ec4515&units=metric"
     }
     
 }

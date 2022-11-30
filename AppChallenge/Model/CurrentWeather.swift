@@ -5,56 +5,26 @@
 //  Created by Adonis Rumbwere on 26/11/2022.
 //
 
+
 import Foundation
 
-// MARK: - WeatherResponse
-public struct CurrentWeather: Codable {
-    let weather: [WeatherCurrent]?
-    let base: String?
-    let main: Main?
-    let dt: Int?
-    let sys: Sys?
-    let timezone: Int?
-    let id: Int?
-    let name: String?
-    let cod: Int?
-
+struct CurrentWeatherResponse: Decodable {
+    
+    var name: String
+    var weather: [Weather]
+    var main: Main
 }
 
-// MARK: - Main
-public struct Main: Codable {
-    let temp: Double?
-    let feelsLike: Double?
-    let temp_min: Double?
-    let temp_max: Double?
-    let pressure: Int?
-    let humidity: Int?
-    let seaLevel: Int?
-    let grndLevel: Int?
+struct Weather: Decodable {
+    var id: Int
+    var main: String
+    var description: String
+    var icon: String
 }
 
-// MARK: - Sys
-public struct Sys: Codable {
-    let type: Int?
-    let id: Int?
-    let country: String?
-    let sunrise: Int?
-    let sunset: Int?
-}
-
-// MARK: - Weather
-public struct WeatherCurrent: Codable {
-    let id: Int?
-    let main: String?
-    let weatherDescription: String?
-    let icon: String?
-}
-
-// MARK: - Wind
-public struct Wind: Codable {
-    let speed: Double?
-    let deg: Int?
-    let gust: Double?
-
+struct Main: Decodable {
+    var temp: Double
+    var tempMin: Double
+    var tempMax: Double
 }
 
