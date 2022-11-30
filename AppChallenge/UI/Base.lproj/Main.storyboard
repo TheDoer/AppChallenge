@@ -133,6 +133,12 @@
                                     <constraint firstAttribute="height" constant="1" id="0cN-fe-0hq"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHX-os-7Ni">
+                                <rect key="frame" x="15.000000000000007" y="265" width="100.66666666666669" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PJ2-zd-05F"/>
                         <color key="backgroundColor" red="0.2784313725" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,6 +152,7 @@
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="top" secondItem="XGh-aV-lfn" secondAttribute="bottom" constant="10" id="8iJ-Us-ROg"/>
                             <constraint firstItem="k2x-Bd-eOz" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="9yP-No-VUO"/>
                             <constraint firstItem="YsR-s2-yQv" firstAttribute="top" secondItem="X9H-I4-BL2" secondAttribute="bottom" constant="5" id="B4p-S5-QJZ"/>
+                            <constraint firstItem="2wa-Vg-XBu" firstAttribute="top" secondItem="HHX-os-7Ni" secondAttribute="bottom" constant="7" id="BHA-3g-2Ul"/>
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="5" id="BfT-gx-bUQ"/>
                             <constraint firstItem="klD-ec-wiN" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="DGr-4Q-ijt"/>
                             <constraint firstItem="PMc-9i-whh" firstAttribute="leading" secondItem="2wa-Vg-XBu" secondAttribute="leading" id="Kln-Wy-gD0"/>
@@ -162,17 +169,18 @@
                             <constraint firstItem="Rth-9a-sOR" firstAttribute="top" secondItem="YsR-s2-yQv" secondAttribute="bottom" id="nVY-gk-Oho"/>
                             <constraint firstItem="PJ2-zd-05F" firstAttribute="trailing" secondItem="bHf-b9-0nk" secondAttribute="trailing" constant="5" id="o8R-z6-zPa"/>
                             <constraint firstItem="hxh-8i-RyD" firstAttribute="top" secondItem="ETg-yN-HLH" secondAttribute="top" constant="80" id="oHr-pN-XPU"/>
+                            <constraint firstItem="HHX-os-7Ni" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="15" id="pUc-qi-Nff"/>
                             <constraint firstItem="k2x-Bd-eOz" firstAttribute="top" secondItem="klD-ec-wiN" secondAttribute="bottom" id="pf2-5V-VWK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="X9H-I4-BL2" id="I7Z-XL-Qc1"/>
                         <outlet property="currentConditionLabel" destination="Y7n-1s-BpW" id="zVy-NO-r4w"/>
+                        <outlet property="focustWeatherTableView" destination="bHf-b9-0nk" id="rX4-Xc-MyA"/>
                         <outlet property="largeCurrentTemperatureLabel" destination="hxh-8i-RyD" id="8CJ-kf-eCm"/>
                         <outlet property="maximumTemperatureLabel" destination="YsR-s2-yQv" id="kCB-tv-XDq"/>
                         <outlet property="minimumTemperatureLabel" destination="2wa-Vg-XBu" id="lm9-qx-uJZ"/>
                         <outlet property="smallCurrentTemperatureLabel" destination="klD-ec-wiN" id="0rf-S2-t3c"/>
-                        <outlet property="tableView" destination="bHf-b9-0nk" id="rX4-Xc-MyA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gus-ds-0M2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

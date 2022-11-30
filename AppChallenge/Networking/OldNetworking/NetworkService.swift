@@ -6,109 +6,128 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct NetworkService {
-    
-    static let shared = NetworkService()
-    
-    private init() {}
-    
-//    func fetchDailyWeatherData(completion: @escaping (Result<[Weather],Error>) -> Void){
-//        request(route: .fetchDailyWeather, method: .get, parameters: nil, completion: completion)
-//
-//
-//    }
-    
-    private func request<T: Decodable>(route: Route,
-                                     method: Method,
-                                     parameters: [String: Any]? = nil,
-                                     completion: @escaping (Result<T, Error>) -> Void) {
-       guard let request = createRequest(route: route, method: method, parameters: parameters) else {
-            completion(.failure(AppError.unknownError))
-            return
-        }
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            var result: Result<Data, Error>?
-            if let data = data {
-                result = .success(data)
-                _ = String(data: data, encoding: .utf8) ?? "Could not stringify the data"
-                //print("The response  is :\n\(responseString)")
-            } else if let error = error {
-                result = .failure(error)
-                print("The error is: \(error.localizedDescription)")
-            }
-            DispatchQueue.main.async {
-                self.handleResponse(result: result, completion: completion)
-            }
-            
-        }.resume()
-        
-    }
-    
-    //This function helps us to decode the data
-    private func handleResponse<T: Decodable>(result: Result<Data, Error>?,
-                                              completion: (Result<T, Error>) -> Void) {
-        guard let result = result else {
-            completion(.failure(AppError.unknownError))
-            return
-        }
-        
-        switch result {
-            case .success(let data):
-                let decoder = JSONDecoder()
-                guard let response = try? decoder.decode(APIResponse<T>.self, from: data) else {
-                    completion(.failure(AppError.errorDecoding))
-                    return
-                }
-                
-                if let error = response.error {
-                    completion(.failure(AppError.serverError(error)))
-                    return
-                }
-                
-                if let decodedData = response.weather {
-                    completion(.success(decodedData))
-                    
-                } else {
-                    completion(.failure(AppError.unknownError))
-                }
-                
-            case .failure(let error):
-                completion(.failure(error))
-                
-        }
+/// The different error types that might occur when making network calls
+enum NetworkError: Error {
+    case badUrl
+    case decodingError
+    case badRequest
+    case noData
+    case customError(Error)
+}
 
-        
+extension NetworkError: LocalizedError {
+    
+    public var errorDescription: String? {
+        return "There was an error connecting to our server. Please try again"
     }
-    
-    /// The function is generating a urlRequest
-    /// - Parameters:
-    ///   - route: the specific endpoint/path to the resource in the backend
-    ///   - method: http verb methods(get,post)
-    ///   - parameters: anything that can be passed to the backend
-    /// - Returns: URLRequest
-    
-    private func createRequest(route: Route, method: Method, parameters: [String: Any]? = nil) -> URLRequest? {
-        let urlString = Route.baseUrl + route.description
-        guard let url = urlString.asUrl else {
-            return nil
-        }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = method.rawValue
-        //urlRequest.addValue("9e43721cd8mshcda865306926f66p103b83jsnc7e578350692", forHTTPHeaderField: "x-rapidapi-key")
-        
-        if let params = parameters {
-            switch method {
-                case .get:
-                    var urlComponent = URLComponents(string: urlString)
-                    urlComponent?.queryItems = params.map {URLQueryItem(name: $0, value: "\($1)") }
-                    urlRequest.url = urlComponent?.url
-            }
-        }
-        return urlRequest
-    }
-    
+}
+
+/// A resource object to be created when making network calls
+struct Resource<T> {
+    let urlString: String
+    let parse: (Data) -> T?
 }
 
 
+///This is a protocol that the WebService will conform to so as to allow us to mock it for testing purposes
+protocol WebServiceProtocol {
+    func getCurrentWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<CurrentWeatherResponse?, NetworkError>) -> Void)
+    func getForecastWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<ForecastWeatherResponse?, NetworkError>) -> Void)
+}
+
+
+/// The class responsible for all network calls within the app
+final class WebService: WebServiceProtocol {
+    
+    /// Generic network caller that can take in and return any type of object
+    /// - Parameters:
+    ///    - resource: object of type Resource to be used for the network call
+    ///    - completion: Code to be executed by the caller. Will contain type Result
+    func load<T>(resource: Resource<T>, completion: @escaping (Result<T?, NetworkError>) -> Void) {
+        
+        guard let url = URL(string: resource.urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(.customError(error)))
+                return
+            }
+            
+            if (response as? HTTPURLResponse)?.statusCode != 200 {
+                completion(.failure(.badRequest))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            completion(.success(resource.parse(data)))
+            
+        }.resume()
+    }
+
+    
+    /// Fetch the current weather for a given location
+    /// - Parameters:
+    ///   - location: A CLLocation object containing the current location of the device
+    ///   - completion: Callback with either the current weather resource or a Network Error
+    func getCurrentWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<CurrentWeatherResponse?, NetworkError>) -> Void) {
+        
+        let url = Urls.currentWeatherUrl(location: location)
+        let resource = Resource<CurrentWeatherResponse>(urlString: url) { data in
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do {
+                let weatherResponse = try decoder.decode(CurrentWeatherResponse.self, from: data)
+                return weatherResponse
+            }
+            catch {
+                print(error)
+            }
+           
+            return nil
+        }
+        
+        load(resource: resource) { result in
+            switch result {
+            case let .success(currentWeatherResponse):
+                completion(.success(currentWeatherResponse))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    /// Fetch the forecasr weather for a given location
+    /// - Parameters:
+    ///   - location: A CLLocation object containing the current location of the device
+    ///   - completion: Callback with either the forecast weather resource or a Network Error
+    func getForecastWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<ForecastWeatherResponse?, NetworkError>) -> Void) {
+        
+        let url = Urls.forecastWeather(location: location)
+        let resource = Resource<ForecastWeatherResponse>(urlString: url) { data in
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.setDateDecodingStrategy()
+            let forecastWeatherResponse = try? decoder.decode(ForecastWeatherResponse.self, from: data)
+            return forecastWeatherResponse
+        }
+        
+        load(resource: resource) { result in
+            switch result {
+            case let .success(forecastWeatherResponse):
+                completion(.success(forecastWeatherResponse))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+}

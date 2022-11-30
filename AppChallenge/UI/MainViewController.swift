@@ -11,10 +11,12 @@ import CoreLocation
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     
-   
-    @IBOutlet weak var backgroundWeatherImageView: UIImageView!
-    
-    @IBOutlet weak var minMaxView: UIView!
+    @IBOutlet weak var focustWeatherTableView: UITableView!
+    @IBOutlet weak var largeCurrentTemperatureLabel: UILabel!
+    @IBOutlet weak var currentConditionLabel: UILabel!
+    @IBOutlet weak var minimumTemperatureLabel: UILabel!
+    @IBOutlet weak var smallCurrentTemperatureLabel: UILabel!
+    @IBOutlet weak var maximumTemperatureLabel: UILabel!
     
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentTempDescription: UILabel!

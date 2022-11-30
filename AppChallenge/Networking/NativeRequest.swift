@@ -55,7 +55,7 @@ public enum HTTPMethod: String {
     case DELETE
 }
 
-public enum NetworkError: Error, Equatable {
+public enum NetworkError1: Error, Equatable {
     case badURL(_ error: String)
     case apiError(code: Int, error: String)
     case invalidJSON(_ error: String)
