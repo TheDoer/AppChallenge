@@ -48,12 +48,9 @@ enum GeneralEndpoints {
     func getURL() -> String {
         switch self {
             case .getCurrentWeather:
-                return "\(Config.BaseURL)/weather?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)&units=\(Config.Units)"
+                return "\(Config.BaseURL)/weather?lat=\(Location.sharedInstance.latitude)&lon=\(Location.sharedInstance.longitude)&appid=\(Config.APIKey)&units=\(Config.Units)"
             case .getFocustWeather:
-                return "\(Config.BaseURL)/forecast?lat=-17.8216&lon=31.0492&appid=\(Config.APIKey)&units=\(Config.Units)"
+                return "\(Config.BaseURL)/forecast?lat=17.660955&lon=36.730672&appid=\(Config.APIKey)&units=\(Config.Units)"
         }
     }
 }
-
-
-

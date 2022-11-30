@@ -22,6 +22,8 @@
 		F1470DE32935503D00DDA249 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DE22935503D00DDA249 /* DateFormatter.swift */; };
 		F1470DE52935D06700DDA249 /* RoundNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DE42935D06700DDA249 /* RoundNumber.swift */; };
 		F1470DE9293688F200DDA249 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DE8293688F200DDA249 /* ActivityIndicator.swift */; };
+		F1A6859F29369C45001A86A7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6859E29369C45001A86A7 /* Location.swift */; };
+		F1A685A229376325001A86A7 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A129376325001A86A7 /* AppTheme.swift */; };
 		F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */; };
 		F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */; };
 		F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */; };
@@ -53,6 +55,8 @@
 		F1470DE22935503D00DDA249 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F1470DE42935D06700DDA249 /* RoundNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundNumber.swift; sourceTree = "<group>"; };
 		F1470DE8293688F200DDA249 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		F1A6859E29369C45001A86A7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F1A685A129376325001A86A7 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F1F4A866292EC8B9007D45C4 /* AppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,14 @@
 			path = Extras;
 			sourceTree = "<group>";
 		};
+		F1A685A029376316001A86A7 /* AppTheme */ = {
+			isa = PBXGroup;
+			children = (
+				F1A685A129376325001A86A7 /* AppTheme.swift */,
+			);
+			path = AppTheme;
+			sourceTree = "<group>";
+		};
 		F1EFB860292F98E600BAEECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +202,7 @@
 		F1F4A868292EC8B9007D45C4 /* AppChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F1A685A029376316001A86A7 /* AppTheme */,
 				F1470DE12935502800DDA249 /* Extras */,
 				F1470DD32933AAFF00DDA249 /* Protocol */,
 				F1470DD62933AFF800DDA249 /* ApplicationCoordinator.swift */,
@@ -233,6 +246,7 @@
 		F1F6298529336830008D2B78 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				F1A6859E29369C45001A86A7 /* Location.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -314,11 +328,13 @@
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
 				F1470DE52935D06700DDA249 /* RoundNumber.swift in Sources */,
 				F1470DC52933855700DDA249 /* Config.swift in Sources */,
+				F1A6859F29369C45001A86A7 /* Location.swift in Sources */,
 				F1470DD72933AFF800DDA249 /* ApplicationCoordinator.swift in Sources */,
 				F1F6297B29335822008D2B78 /* Route.swift in Sources */,
 				F1470DE32935503D00DDA249 /* DateFormatter.swift in Sources */,
 				F1470DD22933927800DDA249 /* generalServiceable.swift in Sources */,
 				F1470DC8293388AE00DDA249 /* NativeRequest.swift in Sources */,
+				F1A685A229376325001A86A7 /* AppTheme.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
 				F1F6297F2933595A008D2B78 /* APIResponse.swift in Sources */,
 				F1470DD52933AC1E00DDA249 /* Coordinator.swift in Sources */,
@@ -487,6 +503,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,6 +532,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,26 +11,26 @@ import CoreLocation
 
 class MainViewModel: ObservableObject {
     var mainCoordinator: MainCoordinator!
-    
-    enum Input {
+
+    enum InputCurrent {
         case viewDidAppear
     }
     
-    enum Output {
+    enum OutputCurrent {
         case fetchCurrentWeatherDidFail(error: Error)
         case fetchCurrentWeatherDidSucceed(weather: CurrentWeather)
     }
     
-    //let currentWeather = CurrentValueSubject<[WeatherCurrent], Never>([WeatherCurrent]())
     let focustWeather = CurrentValueSubject<[List], Never>([List]())
-    private let output: PassthroughSubject<Output, Never> = .init()
-    
-    let service = GeneralService(networkRequest: NativeRequestable())
 
+    private let output: PassthroughSubject<OutputCurrent, Never> = .init()
+   
     var subscriptions = Set<AnyCancellable>()
     
+    //EndPoint Service
+    let service = GeneralService(networkRequest: NativeRequestable())
     
-    func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
+    func transform(input: AnyPublisher<InputCurrent, Never>) -> AnyPublisher<OutputCurrent, Never> {
       input.sink { [weak self] event in
         switch event {
         case .viewDidAppear:
@@ -50,6 +50,7 @@ class MainViewModel: ObservableObject {
       }.store(in: &subscriptions)
     }
     
+    
     func getFocustWeather() {
         service.getFocustWeather()
             .sink { (completion) in
@@ -64,6 +65,4 @@ class MainViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    
-  
 }

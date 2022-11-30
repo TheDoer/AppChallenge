@@ -11,7 +11,6 @@ import Combine
 protocol generalServiceable {
     func getCurrentWeather() -> AnyPublisher<CurrentWeather, Error>
     func getFocustWeather() -> AnyPublisher<FocustWeather, Error>
-    
 }
 
 class GeneralService: generalServiceable {

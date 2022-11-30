@@ -7,11 +7,14 @@
 
 import UIKit
 import Combine
+import CoreLocation
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, CLLocationManagerDelegate {
     
    
     @IBOutlet weak var backgroundWeatherImageView: UIImageView!
+    
+    @IBOutlet weak var minMaxView: UIView!
     
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentTempDescription: UILabel!
@@ -20,27 +23,72 @@ class MainViewController: UIViewController {
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     
+    @IBOutlet weak var lastUpdatedLabel: UILabel!
+    
+    
+    
+    //Location
+    var currentLocation: CLLocation?
     
     var viewModel = MainViewModel()
     var subscriptions = Set<AnyCancellable>()
     
-    private let input: PassthroughSubject<MainViewModel.Input, Never> = .init()
+    private let input: PassthroughSubject<MainViewModel.InputCurrent, Never> = .init()
     
     @IBOutlet weak var focustTableView: UITableView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        fetchFocustWeatherData()
         bindFocust()
         bindCurrent()
-       
+        getFocustWeather()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
       input.send(.viewDidAppear)
+        setUpLocation()
+    }
+    
+    let locationManager = CLLocationManager()
+    
+    func setUpLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !locations.isEmpty, currentLocation == nil {
+            currentLocation = locations.first
+            locationManager.startUpdatingLocation()
+            requestWeatherForLocation()
+            }
+        }
+
+    func requestWeatherForLocation() {
+        guard let currentLocation = currentLocation else  {
+            return
+        }
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
+       
+        
+        Location.sharedInstance.latitude = lat
+        Location.sharedInstance.longitude = lon
+        
+        print("Coord: \(Location.sharedInstance.latitude) | \(Location.sharedInstance.longitude)")
+        
+        print(" URL: \(Config.BaseURL)/weather?lat=\(Location.sharedInstance.latitude)&lon=\(Location.sharedInstance.longitude)&appid=\(Config.APIKey)&units=\(Config.Units)")
+        
+    }
+    
+    func getFocustWeather() {
+        viewModel.getFocustWeather()
     }
     
     private func  bindCurrent() {
@@ -53,24 +101,28 @@ class MainViewController: UIViewController {
                     case .fetchCurrentWeatherDidSucceed(let current):
                         self?.removeSpinner()
                         self?.tempLabel.text = "\(Double(current.main?.temp ?? 0).rounded(toPlaces: 0))°"
-                        self?.currentTempDescription.text = current.weather?[0].main
+                        self?.currentTempDescription.text = (current.weather?[0].main)?.uppercased()
 
                         self?.miniTempLabel.text = "\(Double(current.main?.temp_min ?? 0 ).rounded(toPlaces: 0))°"
                         self?.currentTempLabel.text = "\(Double(current.main?.temp ?? 0).rounded(toPlaces: 0))°"
                         self?.maxTempLabel.text = "\(Double(current.main?.temp_max ?? 0).rounded(toPlaces: 0))°"
+                        let timeStmp = generateCurrentTimeStamp()
+                        self?.lastUpdatedLabel.text = "Last updated: \(timeStmp)"
                         
                         self?.setBackgroundImage(weather: current.weather?[0].main)
                         
                     case .fetchCurrentWeatherDidFail(error: let error):
                         self?.removeSpinner()
-                        //show and error dialog here to show the error
-                        self?.tempLabel.text = error.localizedDescription
+                        
+                        let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: UIAlertController.Style.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.destructive, handler: { action in
+                            self?.bindCurrent()
+                        }))
+                        
+                        self?.present(alert, animated: true, completion: nil)
                 }
             }.store(in: &subscriptions)
-    }
- 
-    func fetchFocustWeatherData() {
-        viewModel.getFocustWeather()
     }
     
     private func bindFocust() {
@@ -86,18 +138,27 @@ class MainViewController: UIViewController {
         switch weather {
             case "Sunny":
                 backgroundWeatherImageView.image = UIImage(named: "forest_sunny")
+                self.minMaxView.backgroundColor = AppTheme.backgroundColorSunny
+                self.view.backgroundColor = AppTheme.backgroundColorSunny
+                
             case "Clouds":
                 backgroundWeatherImageView.image = UIImage(named: "forest_cloudy")
+                self.minMaxView.backgroundColor = AppTheme.backgroundColorCloudy
+                self.view.backgroundColor = AppTheme.backgroundColorCloudy
+
             case  "Rain":
                backgroundWeatherImageView.image = UIImage(named: "forest_rainy")
-                
+                self.minMaxView.backgroundColor = AppTheme.backgroundColorRainy
+                self.view.backgroundColor = AppTheme.backgroundColorRainy
+              
              default:
                 backgroundWeatherImageView.image = UIImage(named: "forest_rainy")
+                self.minMaxView.backgroundColor = AppTheme.backgroundColorRainy
+                self.view.backgroundColor = AppTheme.backgroundColorRainy
             
         }
         
     }
-    
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -111,6 +172,24 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let focustItem = viewModel.focustWeather.value[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherFocustTableViewCell.identifier, for: indexPath) as! WeatherFocustTableViewCell
         cell.focustWeatherSetUp(list: focustItem)
+        
+        let currentWeatherStatus = focustItem.weather?[0].main?.lowercased()
+        
+        guard let currentWeatherStatus = currentWeatherStatus else {
+            return UITableViewCell()
+        }
+    
+        
+        if currentWeatherStatus.contains("Sunny") {
+            cell.contentView.backgroundColor = AppTheme.backgroundColorSunny
+        } else if currentWeatherStatus.contains("Clouds") {
+            cell.contentView.backgroundColor = AppTheme.backgroundColorCloudy
+        } else if currentWeatherStatus.contains("Rain") {
+            cell.contentView.backgroundColor = AppTheme.backgroundColorRainy
+        } else {
+            cell.contentView.backgroundColor = AppTheme.backgroundColorSunny
+        }
+        
         return cell
 
     }

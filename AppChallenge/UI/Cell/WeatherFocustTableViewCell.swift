@@ -21,23 +21,24 @@ class WeatherFocustTableViewCell: UITableViewCell {
         tempLabel.text = "\(Double(list.main?.temp ?? 0).rounded(toPlaces: 0))°"
         
         let icon = list.weather?[0].main?.lowercased()
-        if ((icon?.contains("clear")) != nil) {
+        
+        guard let icon = icon else  {
+            return
+        }
+     
+        if (icon.contains("clear")) {
             self.weatherIconImageView.image = UIImage(named: "clear")
         }
-        else if ((icon?.contains("rain")) != nil) {
+        else if (icon.contains("rain")) {
             self.weatherIconImageView.image = UIImage(named: "rain")
         }
-        else if ((icon?.contains("clouds")) != nil) {
-            self.weatherIconImageView.image = UIImage(named: "clouds")
-        }
-        else if ((icon?.contains("clouds")) != nil) {
-            self.weatherIconImageView.image = UIImage(named: "clouds")
+        else if (icon.contains("clouds")) {
+            self.weatherIconImageView.image = UIImage(named: "partlysunny")
         }
         else {
-            self.weatherIconImageView.image = UIImage(named: "clear")
+            self.weatherIconImageView.image = UIImage(named: "partlysunny")
             
         }
- 
     }
 
 }
