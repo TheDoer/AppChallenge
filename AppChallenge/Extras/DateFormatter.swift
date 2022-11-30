@@ -24,3 +24,9 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
     }
 }
+
+func generateCurrentTimeStamp () -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM d, h:mm a" //Nov 30, 9:09 AM
+    return (formatter.string(from: Date()) as NSString) as String
+}

@@ -25,7 +25,7 @@ class MainViewController: UIViewController, WeatherDelegate {
    
     let locationManager = CLLocationManager()
     
-    let viewModel = WeatherScreenViewModel()
+    let viewModel = currentWeatherViewModel()
     var location: CLLocationCoordinate2D!
     var didFetchLocation = false
     
@@ -33,23 +33,26 @@ class MainViewController: UIViewController, WeatherDelegate {
         super.viewDidLoad()
         setupViews()
         viewModel.delegate = self
-        viewModel.webService = WebService()
+        setUpLocation()
+    }
+    
+    func setUpLocation(){
+        viewModel.networkService = NetworkService()
         self.locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         location = locationManager.location?.coordinate
         locationManager.delegate = self
-
     }
     
     private func setupViews() {
         mainTempLabel.text = viewModel.currentTemperature
         currentWeatherDescriptionLabel.text = viewModel.currentCondition()
-     miniTempLabel.text = viewModel.minimumTemperature
+        miniTempLabel.text = viewModel.minimumTemperature
         currentTempLabel.text = viewModel.currentTemperature
         maxTempLabel.text = viewModel.maximumTemperature
         backgroundImage.image = UIImage(named: viewModel.backgroundImageName())
         let timeStmp = generateCurrentTimeStamp()
-        lastUpdatedLabel.text = timeStmp
+        lastUpdatedLabel.text = "last updated: \(timeStmp)"
         self.view.backgroundColor = viewModel.backgroundColor()
         focustWeatherTableView.reloadData()
     }
@@ -58,7 +61,7 @@ class MainViewController: UIViewController, WeatherDelegate {
         setupViews()
     }
     
-    func errorFetchingWeatherInfo(error: NetworkError) {
+    func errorFetchingWeatherData(error: AppError) {
         var errorMessage = ""
         
         switch error {
@@ -71,7 +74,7 @@ class MainViewController: UIViewController, WeatherDelegate {
 
         showRetryAlert(title: "Network error", message: errorMessage, vc: self) { [weak self] in
             if let self = self {
-                self.viewModel.getWeatherInfo(location: self.location)
+                self.viewModel.getWeatherData(location: self.location)
             }
         }
     }
@@ -101,7 +104,7 @@ extension MainViewController: CLLocationManagerDelegate {
         if !didFetchLocation {
             self.didFetchLocation = true
             self.location = locations[0].coordinate
-            viewModel.getWeatherInfo(location: self.location)
+            viewModel.getWeatherData(location: self.location)
         }
     }
 }

@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,7 +34,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-b9-0nk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-b9-0nk">
                                 <rect key="frame" x="5" y="350" width="383" height="448"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -128,13 +127,13 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGh-aV-lfn">
                                 <rect key="frame" x="5" y="339" width="383" height="1"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="0cN-fe-0hq"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHX-os-7Ni">
-                                <rect key="frame" x="15.000000000000007" y="265" width="100.66666666666669" height="18"/>
+                                <rect key="frame" x="15.000000000000007" y="262" width="100.66666666666669" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +151,7 @@
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="top" secondItem="XGh-aV-lfn" secondAttribute="bottom" constant="10" id="8iJ-Us-ROg"/>
                             <constraint firstItem="k2x-Bd-eOz" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="9yP-No-VUO"/>
                             <constraint firstItem="YsR-s2-yQv" firstAttribute="top" secondItem="X9H-I4-BL2" secondAttribute="bottom" constant="5" id="B4p-S5-QJZ"/>
-                            <constraint firstItem="2wa-Vg-XBu" firstAttribute="top" secondItem="HHX-os-7Ni" secondAttribute="bottom" constant="7" id="BHA-3g-2Ul"/>
+                            <constraint firstItem="2wa-Vg-XBu" firstAttribute="top" secondItem="HHX-os-7Ni" secondAttribute="bottom" constant="10" id="BHA-3g-2Ul"/>
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="5" id="BfT-gx-bUQ"/>
                             <constraint firstItem="klD-ec-wiN" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="DGr-4Q-ijt"/>
                             <constraint firstItem="PMc-9i-whh" firstAttribute="leading" secondItem="2wa-Vg-XBu" secondAttribute="leading" id="Kln-Wy-gD0"/>
@@ -192,8 +191,5 @@
     <resources>
         <image name="clear" width="13" height="13"/>
         <image name="forest_sunny" width="180" height="160.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

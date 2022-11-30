@@ -11,17 +11,16 @@ import UIKit
 
 protocol WeatherDelegate {
     func fetchWeatherData()
-    func errorFetchingWeatherInfo(error: NetworkError)
+    func errorFetchingWeatherData(error: AppError)
 }
 
-class WeatherScreenViewModel {
+class currentWeatherViewModel {
     
     var delegate: WeatherDelegate?
-    var webService: WebServiceProtocol?
+    var networkService: WebServiceProtocol?
     private var currentWeather: CurrentWeatherResponse?
     private var forecastWeather = [ForecastWeatherItem]()
     
-    /// Dispatch group for the multiple network calls for fetching properties in House object
     private var dispatchGroup = DispatchGroup()
     
     var currentTemperature: String {
@@ -29,7 +28,7 @@ class WeatherScreenViewModel {
             return currentWeather.main.temp.toStringWithZeroDecimalPlaces() + "°"
         }
         else {
-            return "--"
+            return "-"
         }
     }
     
@@ -38,7 +37,7 @@ class WeatherScreenViewModel {
             return currentWeather.main.tempMin.toStringWithZeroDecimalPlaces() + "°"
         }
         else {
-            return "--"
+            return "-"
         }
     }
     
@@ -47,7 +46,7 @@ class WeatherScreenViewModel {
             return currentWeather.main.tempMax.toStringWithZeroDecimalPlaces() + "°"
         }
         else {
-            return "--"
+            return "-"
         }
     }
         
@@ -56,7 +55,7 @@ class WeatherScreenViewModel {
             return condition.displayName
         }
         else {
-            return "--"
+            return "-"
         }
     }
     
@@ -95,7 +94,7 @@ class WeatherScreenViewModel {
     
     
     //MARK: - Network functions
-    func getWeatherInfo(location: CLLocationCoordinate2D) {
+    func getWeatherData(location: CLLocationCoordinate2D) {
         
         getCurrentWeather(location: location)
         getForecastWeather(location: location)
@@ -109,12 +108,12 @@ class WeatherScreenViewModel {
     
     private func getCurrentWeather(location: CLLocationCoordinate2D) {
         self.dispatchGroup.enter()
-        webService?.getCurrentWeather(location: location) { result in
+        networkService?.getCurrentWeather(location: location) { result in
             switch result {
             case let .success(currentWeatherResponse):
                 self.currentWeather = currentWeatherResponse
             case let .failure(error):
-                self.delegate?.errorFetchingWeatherInfo(error: error)
+                self.delegate?.errorFetchingWeatherData(error: error)
             }
             self.dispatchGroup.leave()
         }
@@ -122,7 +121,7 @@ class WeatherScreenViewModel {
     
     private func getForecastWeather(location: CLLocationCoordinate2D) {
         self.dispatchGroup.enter()
-        webService?.getForecastWeather(location: location) { result in
+        networkService?.getForecastWeather(location: location) { result in
             switch result {
             case let .success(forecastWeatherResponse):
                 if let response = forecastWeatherResponse {
@@ -130,7 +129,7 @@ class WeatherScreenViewModel {
                     self.forecastWeather = indexSet.map { response.list[$0] }
                 }
             case let .failure(error):
-                self.delegate?.errorFetchingWeatherInfo(error: error)
+                self.delegate?.errorFetchingWeatherData(error: error)
             }
             self.dispatchGroup.leave()
         }
