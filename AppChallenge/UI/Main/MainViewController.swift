@@ -48,6 +48,8 @@ class MainViewController: UIViewController, WeatherDelegate {
         currentTempLabel.text = viewModel.currentTemperature
         maxTempLabel.text = viewModel.maximumTemperature
         backgroundImage.image = UIImage(named: viewModel.backgroundImageName())
+        let timeStmp = generateCurrentTimeStamp()
+        lastUpdatedLabel.text = timeStmp
         self.view.backgroundColor = viewModel.backgroundColor()
         focustWeatherTableView.reloadData()
     }
