@@ -18,6 +18,9 @@
 		F1A685A529378D3E001A86A7 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A429378D3E001A86A7 /* Alerts.swift */; };
 		F1A685A929378FB4001A86A7 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A829378FB4001A86A7 /* CurrentWeatherViewModel.swift */; };
 		F1A685AB29378FC5001A86A7 /* ForecastWeatherItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685AA29378FC5001A86A7 /* ForecastWeatherItemViewModel.swift */; };
+		F1DF9ADF2937BB3F00C24641 /* AppChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9ADE2937BB3F00C24641 /* AppChallengeTests.swift */; };
+		F1DF9AE82937BBA700C24641 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AE72937BBA700C24641 /* NetworkServiceMock.swift */; };
+		F1DF9AEA2937BDAC00C24641 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */; };
 		F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */; };
 		F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */; };
 		F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F4A86D292EC8B9007D45C4 /* MainViewController.swift */; };
@@ -31,6 +34,16 @@
 		F1F6298129335B0C008D2B78 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6298029335B0C008D2B78 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F1DF9AE02937BB3F00C24641 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1F4A85E292EC8B9007D45C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F4A865292EC8B9007D45C4;
+			remoteInfo = AppChallenge;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		F1470DC42933855700DDA249 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F1470DD42933AC1E00DDA249 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -43,6 +56,10 @@
 		F1A685A429378D3E001A86A7 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F1A685A829378FB4001A86A7 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		F1A685AA29378FC5001A86A7 /* ForecastWeatherItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherItemViewModel.swift; sourceTree = "<group>"; };
+		F1DF9ADC2937BB3F00C24641 /* AppChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1DF9ADE2937BB3F00C24641 /* AppChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppChallengeTests.swift; sourceTree = "<group>"; };
+		F1DF9AE72937BBA700C24641 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
+		F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		F1F4A866292EC8B9007D45C4 /* AppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F4A869292EC8B9007D45C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F4A86B292EC8B9007D45C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +76,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F1DF9AD92937BB3F00C24641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F4A863292EC8B9007D45C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				F1470DD42933AC1E00DDA249 /* Coordinator.swift */,
+				F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -139,6 +164,23 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F1DF9ADD2937BB3F00C24641 /* AppChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1DF9AE62937BB8000C24641 /* MockService */,
+				F1DF9ADE2937BB3F00C24641 /* AppChallengeTests.swift */,
+			);
+			path = AppChallengeTests;
+			sourceTree = "<group>";
+		};
+		F1DF9AE62937BB8000C24641 /* MockService */ = {
+			isa = PBXGroup;
+			children = (
+				F1DF9AE72937BBA700C24641 /* NetworkServiceMock.swift */,
+			);
+			path = MockService;
+			sourceTree = "<group>";
+		};
 		F1EFB860292F98E600BAEECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F4A868292EC8B9007D45C4 /* AppChallenge */,
+				F1DF9ADD2937BB3F00C24641 /* AppChallengeTests */,
 				F1F4A867292EC8B9007D45C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F4A866292EC8B9007D45C4 /* AppChallenge.app */,
+				F1DF9ADC2937BB3F00C24641 /* AppChallengeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +250,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F1DF9ADB2937BB3F00C24641 /* AppChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1DF9AE42937BB3F00C24641 /* Build configuration list for PBXNativeTarget "AppChallengeTests" */;
+			buildPhases = (
+				F1DF9AD82937BB3F00C24641 /* Sources */,
+				F1DF9AD92937BB3F00C24641 /* Frameworks */,
+				F1DF9ADA2937BB3F00C24641 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1DF9AE12937BB3F00C24641 /* PBXTargetDependency */,
+			);
+			name = AppChallengeTests;
+			productName = AppChallengeTests;
+			productReference = F1DF9ADC2937BB3F00C24641 /* AppChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F1F4A865292EC8B9007D45C4 /* AppChallenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1F4A87A292EC8BC007D45C4 /* Build configuration list for PBXNativeTarget "AppChallenge" */;
@@ -233,6 +295,10 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					F1DF9ADB2937BB3F00C24641 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = F1F4A865292EC8B9007D45C4;
+					};
 					F1F4A865292EC8B9007D45C4 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -252,11 +318,19 @@
 			projectRoot = "";
 			targets = (
 				F1F4A865292EC8B9007D45C4 /* AppChallenge */,
+				F1DF9ADB2937BB3F00C24641 /* AppChallengeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F1DF9ADA2937BB3F00C24641 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F4A864292EC8B9007D45C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +344,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F1DF9AD82937BB3F00C24641 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1DF9ADF2937BB3F00C24641 /* AppChallengeTests.swift in Sources */,
+				F1DF9AE82937BBA700C24641 /* NetworkServiceMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1F4A862292EC8B9007D45C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +361,7 @@
 				F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */,
 				F1F6298129335B0C008D2B78 /* AppError.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
+				F1DF9AEA2937BDAC00C24641 /* NetworkServiceProtocol.swift in Sources */,
 				F1470DE52935D06700DDA249 /* RoundNumber.swift in Sources */,
 				F1A685A929378FB4001A86A7 /* CurrentWeatherViewModel.swift in Sources */,
 				F1470DC52933855700DDA249 /* Config.swift in Sources */,
@@ -297,6 +381,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1DF9AE12937BB3F00C24641 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1F4A865292EC8B9007D45C4 /* AppChallenge */;
+			targetProxy = F1DF9AE02937BB3F00C24641 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F1F4A86F292EC8B9007D45C4 /* Main.storyboard */ = {
@@ -318,6 +410,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F1DF9AE22937BB3F00C24641 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Z6ZC6JCHL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.zw.AppChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppChallenge";
+			};
+			name = Debug;
+		};
+		F1DF9AE32937BB3F00C24641 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Z6ZC6JCHL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.zw.AppChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppChallenge";
+			};
+			name = Release;
+		};
 		F1F4A878292EC8BC007D45C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -493,6 +621,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F1DF9AE42937BB3F00C24641 /* Build configuration list for PBXNativeTarget "AppChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1DF9AE22937BB3F00C24641 /* Debug */,
+				F1DF9AE32937BB3F00C24641 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1F4A861292EC8B9007D45C4 /* Build configuration list for PBXProject "AppChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

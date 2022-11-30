@@ -8,12 +8,12 @@
 import Foundation
 import CoreLocation
 
-protocol WebServiceProtocol {
+protocol NetWorkServiceProtocol {
     func getCurrentWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<CurrentWeatherResponse?, AppError>) -> Void)
     func getForecastWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<ForecastWeatherResponse?, AppError>) -> Void)
 }
 
-final class NetworkService: WebServiceProtocol {
+final class NetworkService: NetWorkServiceProtocol {
     
     func load<T>(resource: APIResource<T>, completion: @escaping (Result<T?, AppError>) -> Void) {
         

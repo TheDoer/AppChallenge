@@ -17,7 +17,7 @@ protocol WeatherDelegate {
 class CurrentWeatherViewModel {
     
     var delegate: WeatherDelegate?
-    var networkService: WebServiceProtocol?
+    var networkService: NetWorkServiceProtocol?
     private var currentWeather: CurrentWeatherResponse?
     private var forecastWeather = [ForecastWeatherItem]()
     
