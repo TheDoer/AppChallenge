@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct APIResponse<T: Decodable>: Decodable {
-    let weather: T?
-    let error: String?
-    
+struct APIResource<T> {
+    let urlString: String
+    let parse: (Data) -> T?
 }

@@ -24,7 +24,7 @@ struct ForecastWeatherItemViewModel {
         return forecastWeatherItem.main.temp.toStringWithZeroDecimalPlaces() + "°"
     }
     
-    func conditionImageName() -> String {
+    func switchImage() -> String {
         if let condition = CurrentCondition(rawValue: forecastWeatherItem.weather[0].main) {
             return condition.imageName
         }

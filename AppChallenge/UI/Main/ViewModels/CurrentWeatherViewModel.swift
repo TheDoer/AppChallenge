@@ -78,7 +78,6 @@ class CurrentWeatherViewModel {
     }
     
     
-    //MARK: - Tableview properties
     var numberOfSections: Int {
         return 1
     }

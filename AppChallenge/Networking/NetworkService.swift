@@ -8,11 +8,6 @@
 import Foundation
 import CoreLocation
 
-struct APIResource<T> {
-    let urlString: String
-    let parse: (Data) -> T?
-}
-
 protocol WebServiceProtocol {
     func getCurrentWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<CurrentWeatherResponse?, AppError>) -> Void)
     func getForecastWeather(location: CLLocationCoordinate2D, completion: @escaping (Result<ForecastWeatherResponse?, AppError>) -> Void)

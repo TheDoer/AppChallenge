@@ -16,7 +16,7 @@
             endingColumnNumber = "30"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "conditionImageName()"
+            landmarkName = "switchImage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

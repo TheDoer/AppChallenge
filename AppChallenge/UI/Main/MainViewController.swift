@@ -11,6 +11,8 @@ import CoreLocation
 class MainViewController: UIViewController, WeatherDelegate {
     
     @IBOutlet weak var focustWeatherTableView: UITableView!
+    
+    @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var mainTempLabel: UILabel!
     @IBOutlet weak var currentWeatherDescriptionLabel: UILabel!
     @IBOutlet weak var lastUpdatedLabel: UILabel!

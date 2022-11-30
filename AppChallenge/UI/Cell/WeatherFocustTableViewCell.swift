@@ -17,7 +17,7 @@ class WeatherFocustTableViewCell: UITableViewCell {
     
     func focustWeatherSetUp(list: ForecastWeatherItemViewModel) {
         focustDateLabel.text = list.day
-        weatherIconImageView.image = UIImage(named: list.conditionImageName())
+        weatherIconImageView.image = UIImage(named: list.switchImage())
         tempLabel.text = list.temperature
     }
 
