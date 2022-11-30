@@ -16,20 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forest_sunny" translatesAutoresizingMaskIntoConstraints="NO" id="X9H-I4-BL2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forest_rainy" translatesAutoresizingMaskIntoConstraints="NO" id="X9H-I4-BL2">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="285"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="285" id="vV3-nF-inu"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxh-8i-RyD">
-                                <rect key="frame" x="156.66666666666666" y="80" width="80" height="54"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-13°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxh-8i-RyD">
+                                <rect key="frame" x="145.33333333333334" y="80" width="102.33333333333334" height="61"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUNNY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7n-1s-BpW">
-                                <rect key="frame" x="148" y="134" width="97" height="33.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAINY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7n-1s-BpW">
+                                <rect key="frame" x="155" y="141" width="83.333333333333314" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PJ2-zd-05F"/>
-                        <color key="backgroundColor" red="0.2784313725" green="0.6705882353" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XGh-aV-lfn" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="5" id="1Bl-zj-N7k"/>
                             <constraint firstItem="X9H-I4-BL2" firstAttribute="top" secondItem="ETg-yN-HLH" secondAttribute="top" id="1Qt-vz-yGT"/>
@@ -190,6 +190,6 @@
     </scenes>
     <resources>
         <image name="clear" width="13" height="13"/>
-        <image name="forest_sunny" width="180" height="160.5"/>
+        <image name="forest_rainy" width="180" height="160.5"/>
     </resources>
 </document>

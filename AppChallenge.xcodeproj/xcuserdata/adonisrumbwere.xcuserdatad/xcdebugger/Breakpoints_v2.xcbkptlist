@@ -3,4 +3,22 @@
    uuid = "92E229C5-D0C5-4AEC-B056-D735FD86D911"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0855E76F-FA94-4C6C-BE52-10CED58BB101"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppChallenge/UI/Main/ViewModels/ForecastWeatherItemViewModel.swift"
+            startingColumnNumber = "10"
+            endingColumnNumber = "30"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "conditionImageName()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

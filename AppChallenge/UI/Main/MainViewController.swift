@@ -10,22 +10,18 @@ import CoreLocation
 
 class MainViewController: UIViewController, WeatherDelegate {
     
-    
     @IBOutlet weak var focustWeatherTableView: UITableView!
     @IBOutlet weak var mainTempLabel: UILabel!
-    
     @IBOutlet weak var currentWeatherDescriptionLabel: UILabel!
-    
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     @IBOutlet weak var miniTempLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
-    
     @IBOutlet weak var backgroundImage: UIImageView!
    
     let locationManager = CLLocationManager()
     
-    let viewModel = currentWeatherViewModel()
+    let viewModel = CurrentWeatherViewModel()
     var location: CLLocationCoordinate2D!
     var didFetchLocation = false
     

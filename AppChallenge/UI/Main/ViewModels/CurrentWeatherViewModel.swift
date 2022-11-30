@@ -14,7 +14,7 @@ protocol WeatherDelegate {
     func errorFetchingWeatherData(error: AppError)
 }
 
-class currentWeatherViewModel {
+class CurrentWeatherViewModel {
     
     var delegate: WeatherDelegate?
     var networkService: WebServiceProtocol?
@@ -64,7 +64,7 @@ class currentWeatherViewModel {
             return condition.backgroundImageName
         }
         else {
-            return "forest_sunny"
+            return "forest_rainy"
         }
     }
     
@@ -73,7 +73,7 @@ class currentWeatherViewModel {
             return condition.backgroundColor
         }
         else {
-            return UIColor(rgb: 0x47AB2F)
+            return UIColor(rgb: 0x57575D)
         }
     }
     
