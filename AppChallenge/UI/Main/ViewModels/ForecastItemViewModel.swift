@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct ForecastWeatherItemViewModel {
+struct ForecastItemViewModel {
     
     init(_ forecastWeatherItem: ForecastWeatherItem) {
         self.forecastWeatherItem = forecastWeatherItem

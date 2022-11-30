@@ -86,9 +86,9 @@ class CurrentWeatherViewModel {
         return forecastWeather.count
     }
     
-    func forecastWeatherAtIndex(_ index: Int) -> ForecastWeatherItemViewModel {
+    func forecastWeatherAtIndex(_ index: Int) -> ForecastItemViewModel {
         let forecastWeatherItem = forecastWeather[index]
-        return ForecastWeatherItemViewModel(forecastWeatherItem)
+        return ForecastItemViewModel(forecastWeatherItem)
     }
     
     
