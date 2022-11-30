@@ -82,8 +82,8 @@ extension WeatherScreenViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell") as! ForecastTableViewCell
-        cell.configureCell(viewModel: viewModel.forecastWeatherAtIndex(indexPath.row))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell") as! WeatherFocustTableViewCell
+        cell.focustWeatherSetUp(list: viewModel.forecastWeatherAtIndex(indexPath.row))
         return cell
     }
     
