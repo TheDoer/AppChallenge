@@ -18,11 +18,11 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let frameworkBundle = Bundle(identifier: "co.zw.AppChallenge")
-        let storyboard = UIStoryboard(name: "Main", bundle: frameworkBundle)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController?
-        mainViewModel.mainCoordinator = self
-        vc?.viewModel = mainViewModel
-        rootViewController.pushViewController(vc!, animated: true)
+//        let frameworkBundle = Bundle(identifier: "co.zw.AppChallenge")
+//        let storyboard = UIStoryboard(name: "Main", bundle: frameworkBundle)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController?
+//        mainViewModel.mainCoordinator = self
+//        vc?.viewModel = mainViewModel
+//        rootViewController.pushViewController(vc!, animated: true)
     }
 }

@@ -8,16 +8,29 @@
 import UIKit
 import CoreLocation
 
-class WeatherScreenViewController: UIViewController, WeatherDelegate {
+class MainViewController: UIViewController, WeatherDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var largeCurrentTemperatureLabel: UILabel!
-    @IBOutlet weak var currentConditionLabel: UILabel!
-    @IBOutlet weak var minimumTemperatureLabel: UILabel!
-    @IBOutlet weak var smallCurrentTemperatureLabel: UILabel!
-    @IBOutlet weak var maximumTemperatureLabel: UILabel!
+    
+    @IBOutlet weak var focustWeatherTableView: UITableView!
+    @IBOutlet weak var mainTempLabel: UILabel!
+    
+    @IBOutlet weak var currentWeatherDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var lastUpdatedLabel: UILabel!
+    @IBOutlet weak var miniTempLabel: UILabel!
+    @IBOutlet weak var currentTempLabel: UILabel!
+    @IBOutlet weak var maxTempLabel: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
+    //    @IBOutlet weak var largeCurrentTemperatureLabel: UILabel!
+//    @IBOutlet weak var currentConditionLabel: UILabel!
+//    @IBOutlet weak var minimumTemperatureLabel: UILabel!
+//    @IBOutlet weak var smallCurrentTemperatureLabel: UILabel!
+//    @IBOutlet weak var maximumTemperatureLabel: UILabel!
+//
+//    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    
     let locationManager = CLLocationManager()
     
     let viewModel = WeatherScreenViewModel()
@@ -26,7 +39,7 @@ class WeatherScreenViewController: UIViewController, WeatherDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayInfo()
+        setupViews()
         viewModel.delegate = self
         viewModel.webService = WebService()
         self.locationManager.requestAlwaysAuthorization()
@@ -36,19 +49,19 @@ class WeatherScreenViewController: UIViewController, WeatherDelegate {
 
     }
     
-    private func displayInfo() {
-        largeCurrentTemperatureLabel.text = viewModel.currentTemperature
-        currentConditionLabel.text = viewModel.currentCondition()
-        minimumTemperatureLabel.text = viewModel.minimumTemperature
-        smallCurrentTemperatureLabel.text = viewModel.currentTemperature
-        maximumTemperatureLabel.text = viewModel.maximumTemperature
+    private func setupViews() {
+        mainTempLabel.text = viewModel.currentTemperature
+        currentWeatherDescriptionLabel.text = viewModel.currentCondition()
+     miniTempLabel.text = viewModel.minimumTemperature
+        currentTempLabel.text = viewModel.currentTemperature
+        maxTempLabel.text = viewModel.maximumTemperature
         backgroundImage.image = UIImage(named: viewModel.backgroundImageName())
         self.view.backgroundColor = viewModel.backgroundColor()
-        tableView.reloadData()
+        focustWeatherTableView.reloadData()
     }
     
-    func didFetchWeatherInfo() {
-        displayInfo()
+    func fetchWeatherData() {
+        setupViews()
     }
     
     func errorFetchingWeatherInfo(error: NetworkError) {
@@ -71,7 +84,7 @@ class WeatherScreenViewController: UIViewController, WeatherDelegate {
 
 }
 
-extension WeatherScreenViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
@@ -82,14 +95,14 @@ extension WeatherScreenViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell") as! WeatherFocustTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherFocustTableViewCell") as! WeatherFocustTableViewCell
         cell.focustWeatherSetUp(list: viewModel.forecastWeatherAtIndex(indexPath.row))
         return cell
     }
     
 }
 
-extension WeatherScreenViewController: CLLocationManagerDelegate {
+extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !didFetchLocation {
             self.didFetchLocation = true

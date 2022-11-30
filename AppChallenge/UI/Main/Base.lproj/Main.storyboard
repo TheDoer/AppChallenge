@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uey-nU-bx0">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="5" y="350" width="383" height="448"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="forecastCell" rowHeight="52" id="kcI-iA-3kU" customClass="ForecastTableViewCell" customModule="Weather_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherFocustTableViewCell" rowHeight="52" id="kcI-iA-3kU" customClass="WeatherFocustTableViewCell" customModule="AppChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="383" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kcI-iA-3kU" id="O14-wF-b44">
@@ -78,16 +78,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="conditionImage" destination="x56-A5-ch8" id="W0R-nn-VlR"/>
-                                            <outlet property="dayLabel" destination="QU9-P9-vxo" id="AUX-3I-1Vz"/>
-                                            <outlet property="temperatureLabel" destination="XqL-ZA-xVw" id="PeA-w4-fCv"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="uey-nU-bx0" id="daf-Mv-St2"/>
-                                    <outlet property="delegate" destination="uey-nU-bx0" id="kTY-C4-RmY"/>
+                                    <outlet property="dataSource" destination="uey-nU-bx0" id="ONw-aH-BLb"/>
+                                    <outlet property="delegate" destination="uey-nU-bx0" id="2vq-H2-ACl"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wa-Vg-XBu">
@@ -174,18 +169,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="X9H-I4-BL2" id="I7Z-XL-Qc1"/>
-                        <outlet property="currentConditionLabel" destination="Y7n-1s-BpW" id="zVy-NO-r4w"/>
-                        <outlet property="focustWeatherTableView" destination="bHf-b9-0nk" id="rX4-Xc-MyA"/>
-                        <outlet property="largeCurrentTemperatureLabel" destination="hxh-8i-RyD" id="8CJ-kf-eCm"/>
-                        <outlet property="maximumTemperatureLabel" destination="YsR-s2-yQv" id="kCB-tv-XDq"/>
-                        <outlet property="minimumTemperatureLabel" destination="2wa-Vg-XBu" id="lm9-qx-uJZ"/>
-                        <outlet property="smallCurrentTemperatureLabel" destination="klD-ec-wiN" id="0rf-S2-t3c"/>
+                        <outlet property="backgroundImage" destination="X9H-I4-BL2" id="M8i-lf-Le8"/>
+                        <outlet property="currentTempLabel" destination="klD-ec-wiN" id="nBD-mI-HuF"/>
+                        <outlet property="currentWeatherDescriptionLabel" destination="Y7n-1s-BpW" id="Kop-fm-0xK"/>
+                        <outlet property="focustWeatherTableView" destination="bHf-b9-0nk" id="DDf-ud-5bR"/>
+                        <outlet property="lastUpdatedLabel" destination="HHX-os-7Ni" id="dY6-Bf-DUR"/>
+                        <outlet property="mainTempLabel" destination="hxh-8i-RyD" id="hPf-91-agU"/>
+                        <outlet property="maxTempLabel" destination="YsR-s2-yQv" id="f4F-al-3yD"/>
+                        <outlet property="miniTempLabel" destination="2wa-Vg-XBu" id="Y4O-2T-1oC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gus-ds-0M2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="24"/>
+            <point key="canvasLocation" x="-292" y="24"/>
         </scene>
     </scenes>
     <resources>

@@ -10,7 +10,7 @@ import CoreLocation
 import UIKit
 
 protocol WeatherDelegate {
-    func didFetchWeatherInfo()
+    func fetchWeatherData()
     func errorFetchingWeatherInfo(error: NetworkError)
 }
 
@@ -102,7 +102,7 @@ class WeatherScreenViewModel {
         
         self.dispatchGroup.notify(queue: .main) {
             if self.currentWeather != nil, self.forecastWeather.count > 0 {
-                self.delegate?.didFetchWeatherInfo()
+                self.delegate?.fetchWeatherData()
             }
         }
     }
