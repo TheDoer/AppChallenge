@@ -32,7 +32,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
+        currentweatherBind()
+        focustWeatherBind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +41,7 @@ class MainViewController: UIViewController {
       input.send(.viewDidAppear)
     }
     
-    private func bind() {
+    private func currentweatherBind() {
       let output = mainViewModel.transform(input: input.eraseToAnyPublisher())
       output
         .receive(on: DispatchQueue.main)
@@ -61,6 +62,16 @@ class MainViewController: UIViewController {
         }
       }.store(in: &subscriptions)
 
+    }
+    
+    func focustWeatherBind() {
+        mainViewModel
+            .focustWeatherItems
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] (_) in
+                //reload tableview
+                //stop spinner
+        }.store(in: &subscriptions)
     }
 }
 

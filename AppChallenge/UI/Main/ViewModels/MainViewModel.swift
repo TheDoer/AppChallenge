@@ -64,7 +64,6 @@ class MainViewModel: ObservableObject {
             } receiveValue: { (response) in
                 self.focustWeatherItems.send(response.list ?? [])
             }.store(in: &subscriptions)
-
     }
     
     func backgroundImageName() -> String {
