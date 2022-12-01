@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Combine
 import CoreLocation
 
-class MainViewController: UIViewController, WeatherDelegate {
+class MainViewController: UIViewController {
     
-    @IBOutlet weak var focustWeatherTableView: UITableView!
-    
+    private var subscriptions = Set<AnyCancellable>()
+
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var mainTempLabel: UILabel!
     @IBOutlet weak var currentWeatherDescriptionLabel: UILabel!
@@ -23,88 +24,61 @@ class MainViewController: UIViewController, WeatherDelegate {
    
     let locationManager = CLLocationManager()
     
-    let viewModel = CurrentWeatherViewModel()
+    private let mainViewModel = MainViewModel()
+    private let input: PassthroughSubject<MainViewModel.Input, Never> = .init()
+    
     var location: CLLocationCoordinate2D!
     var didFetchLocation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        viewModel.delegate = self
-        setUpLocation()
+        bind()
     }
     
-    func setUpLocation(){
-        showSpinner()
-        viewModel.networkService = NetworkService()
-        self.locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        location = locationManager.location?.coordinate
-        locationManager.delegate = self
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      input.send(.viewDidAppear)
     }
     
-    private func setupViews() {
-        mainTempLabel.text = viewModel.currentTemp
-        currentWeatherDescriptionLabel.text = viewModel.default()
-        miniTempLabel.text = viewModel.miniTemp
-        currentTempLabel.text = viewModel.currentTemp
-        maxTempLabel.text = viewModel.maxTemp
-        backgroundImage.image = UIImage(named: viewModel.backgroundImageName())
-        let timeStmp = generateCurrentTimeStamp()
-        lastUpdatedLabel.text = "last updated: \(timeStmp)"
-        self.view.backgroundColor = viewModel.backgroundColor()
-        focustWeatherTableView.reloadData()
-    }
-    
-    func fetchWeatherData() {
-        setupViews()
-    }
-    
-    func errorFetchingWeatherData(error: AppError) {
-        removeSpinner()
-        var errorMessage = ""
-        
-        switch error {
-            
-        case .customError(let customError):
-            errorMessage = customError.localizedDescription
-        default:
-            errorMessage = error.localizedDescription
+    private func bind() {
+      let output = mainViewModel.transform(input: input.eraseToAnyPublisher())
+      output
+        .receive(on: DispatchQueue.main)
+        .sink { [weak self] event in
+        switch event {
+        case .fetchCurrentDidSucceed(let current):
+                self?.mainTempLabel.text = Double((current.main?.temp ?? 0)).toStringWithZeroDecimalPlaces()
+                self?.currentTempLabel.text = Double((current.main?.temp ?? 0)).toStringWithZeroDecimalPlaces()
+                self?.miniTempLabel.text = Double((current.main?.temp_min ?? 0)).toStringWithZeroDecimalPlaces()
+                self?.maxTempLabel.text = Double((current.main?.temp_max ?? 0)).toStringWithZeroDecimalPlaces()
+                let timeStmp = generateCurrentTimeStamp()
+                self?.lastUpdatedLabel.text = "last updated: \(timeStmp)"
+                self?.currentWeatherDescriptionLabel.text = current.weather?[0].main?.uppercased()
+                self?.view.backgroundColor = UIColor(rgb: self?.mainViewModel.backgroundColorHexValue() ?? 0x47AB2F )
+                self?.backgroundImage.image = UIImage(named: self?.mainViewModel.backgroundImageName() ?? "forest_rainy")
+            case .fetchCurrentDidFail(_): break
+                
         }
+      }.store(in: &subscriptions)
 
-        showRetryAlert(title: "Network error", message: errorMessage, vc: self) { [weak self] in
-            if let self = self {
-                self.viewModel.getWeatherData(location: self.location)
-            }
-        }
     }
-
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
+        return mainViewModel.focustWeatherItems.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherFocustTableViewCell") as! WeatherFocustTableViewCell
-        cell.focustWeatherSetUp(list: viewModel.forecastWeatherAtIndex(indexPath.row))
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: WeatherFocustTableViewCell.identifier, for: indexPath) as? WeatherFocustTableViewCell {
+            //cell.focustWeatherSetUp(list: mainViewModel.focustWeatherItems.value[indexPath.row])
+        }
+        return UITableViewCell()
+        
     }
     
 }
 
-extension MainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if !didFetchLocation {
-            self.didFetchLocation = true
-            self.location = locations[0].coordinate
-            viewModel.getWeatherData(location: self.location)
-        }
-    }
-}
+
+

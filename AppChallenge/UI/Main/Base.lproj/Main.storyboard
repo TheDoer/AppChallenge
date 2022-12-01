@@ -84,10 +84,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="uey-nU-bx0" id="ONw-aH-BLb"/>
-                                    <outlet property="delegate" destination="uey-nU-bx0" id="2vq-H2-ACl"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wa-Vg-XBu" userLabel="Mini">
                                 <rect key="frame" x="20" y="290" width="26.666666666666671" height="24"/>
@@ -175,9 +171,8 @@
                     <connections>
                         <outlet property="backgroundImage" destination="X9H-I4-BL2" id="M8i-lf-Le8"/>
                         <outlet property="currentTempLabel" destination="klD-ec-wiN" id="nBD-mI-HuF"/>
-                        <outlet property="currentWeatherDescriptionLabel" destination="Y7n-1s-BpW" id="Kop-fm-0xK"/>
-                        <outlet property="focustWeatherTableView" destination="bHf-b9-0nk" id="DDf-ud-5bR"/>
-                        <outlet property="lastUpdatedLabel" destination="HHX-os-7Ni" id="dY6-Bf-DUR"/>
+                        <outlet property="currentWeatherDescriptionLabel" destination="Y7n-1s-BpW" id="j4V-VW-OWY"/>
+                        <outlet property="lastUpdatedLabel" destination="HHX-os-7Ni" id="lIh-gx-taN"/>
                         <outlet property="mainTempLabel" destination="hxh-8i-RyD" id="hPf-91-agU"/>
                         <outlet property="maxTempLabel" destination="YsR-s2-yQv" id="f4F-al-3yD"/>
                         <outlet property="miniTempLabel" destination="2wa-Vg-XBu" id="Y4O-2T-1oC"/>
