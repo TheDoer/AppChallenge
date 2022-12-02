@@ -133,8 +133,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated: --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHX-os-7Ni">
-                                <rect key="frame" x="15.000000000000007" y="262" width="118.66666666666669" height="18"/>
+                                <rect key="frame" x="25.000000000000007" y="808" width="118.66666666666669" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyj-30-hzk">
+                                <rect key="frame" x="185" y="198.66666666666666" width="23.333333333333343" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -152,14 +158,16 @@
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="top" secondItem="XGh-aV-lfn" secondAttribute="bottom" constant="10" id="8iJ-Us-ROg"/>
                             <constraint firstItem="k2x-Bd-eOz" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="9yP-No-VUO"/>
                             <constraint firstItem="YsR-s2-yQv" firstAttribute="top" secondItem="X9H-I4-BL2" secondAttribute="bottom" constant="5" id="B4p-S5-QJZ"/>
-                            <constraint firstItem="2wa-Vg-XBu" firstAttribute="top" secondItem="HHX-os-7Ni" secondAttribute="bottom" constant="10" id="BHA-3g-2Ul"/>
                             <constraint firstItem="bHf-b9-0nk" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="5" id="BfT-gx-bUQ"/>
                             <constraint firstItem="klD-ec-wiN" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="DGr-4Q-ijt"/>
                             <constraint firstItem="PMc-9i-whh" firstAttribute="leading" secondItem="2wa-Vg-XBu" secondAttribute="leading" id="Kln-Wy-gD0"/>
+                            <constraint firstItem="HHX-os-7Ni" firstAttribute="top" secondItem="bHf-b9-0nk" secondAttribute="bottom" constant="10" id="LKY-M1-6q5"/>
                             <constraint firstItem="XGh-aV-lfn" firstAttribute="top" secondItem="PMc-9i-whh" secondAttribute="bottom" constant="10" id="M32-K2-213"/>
+                            <constraint firstItem="HHX-os-7Ni" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="25" id="QNY-qB-f7s"/>
                             <constraint firstItem="PJ2-zd-05F" firstAttribute="trailing" secondItem="YsR-s2-yQv" secondAttribute="trailing" constant="20" id="Ray-ge-vBp"/>
                             <constraint firstItem="2wa-Vg-XBu" firstAttribute="top" secondItem="X9H-I4-BL2" secondAttribute="bottom" constant="5" id="SpH-Lb-sL9"/>
                             <constraint firstItem="Y7n-1s-BpW" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="TBF-DM-SGh"/>
+                            <constraint firstItem="Eyj-30-hzk" firstAttribute="centerX" secondItem="ETg-yN-HLH" secondAttribute="centerX" id="Udz-Hd-Tmo"/>
                             <constraint firstItem="Y7n-1s-BpW" firstAttribute="top" secondItem="hxh-8i-RyD" secondAttribute="bottom" id="WIr-QO-3eu"/>
                             <constraint firstItem="Rth-9a-sOR" firstAttribute="leading" secondItem="YsR-s2-yQv" secondAttribute="leading" id="Xgv-uP-IMo"/>
                             <constraint firstItem="PJ2-zd-05F" firstAttribute="trailing" secondItem="XGh-aV-lfn" secondAttribute="trailing" constant="5" id="aZN-Yy-Tlq"/>
@@ -168,16 +176,17 @@
                             <constraint firstItem="PJ2-zd-05F" firstAttribute="bottom" secondItem="bHf-b9-0nk" secondAttribute="bottom" constant="20" id="m0L-63-oxa"/>
                             <constraint firstItem="Rth-9a-sOR" firstAttribute="top" secondItem="YsR-s2-yQv" secondAttribute="bottom" id="nVY-gk-Oho"/>
                             <constraint firstItem="PJ2-zd-05F" firstAttribute="trailing" secondItem="bHf-b9-0nk" secondAttribute="trailing" constant="5" id="o8R-z6-zPa"/>
-                            <constraint firstItem="HHX-os-7Ni" firstAttribute="leading" secondItem="PJ2-zd-05F" secondAttribute="leading" constant="15" id="pUc-qi-Nff"/>
                             <constraint firstItem="k2x-Bd-eOz" firstAttribute="top" secondItem="klD-ec-wiN" secondAttribute="bottom" id="pf2-5V-VWK"/>
+                            <constraint firstItem="Eyj-30-hzk" firstAttribute="top" secondItem="Y7n-1s-BpW" secondAttribute="bottom" constant="15" id="ykf-bd-Oob"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="X9H-I4-BL2" id="M8i-lf-Le8"/>
+                        <outlet property="cityName" destination="Eyj-30-hzk" id="JAW-UI-ekh"/>
                         <outlet property="currentTempLabel" destination="klD-ec-wiN" id="nBD-mI-HuF"/>
                         <outlet property="currentWeatherDescriptionLabel" destination="Y7n-1s-BpW" id="j4V-VW-OWY"/>
                         <outlet property="focustTableView" destination="bHf-b9-0nk" id="klF-JF-KaR"/>
-                        <outlet property="lastUpdatedLabel" destination="HHX-os-7Ni" id="lIh-gx-taN"/>
+                        <outlet property="lastUpdatedLabel" destination="HHX-os-7Ni" id="MXT-Da-Y3g"/>
                         <outlet property="mainTempLabel" destination="hxh-8i-RyD" id="hPf-91-agU"/>
                         <outlet property="maxTempLabel" destination="YsR-s2-yQv" id="f4F-al-3yD"/>
                         <outlet property="miniTempLabel" destination="2wa-Vg-XBu" id="Y4O-2T-1oC"/>

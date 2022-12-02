@@ -16,6 +16,7 @@
 		F1470DE9293688F200DDA249 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1470DE8293688F200DDA249 /* ActivityIndicator.swift */; };
 		F1A685A229376325001A86A7 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A129376325001A86A7 /* AppTheme.swift */; };
 		F1A685A529378D3E001A86A7 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A429378D3E001A86A7 /* Alerts.swift */; };
+		F1C6EFED293A24E10054D783 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6EFEC293A24E00054D783 /* Location.swift */; };
 		F1DF9AEA2937BDAC00C24641 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */; };
 		F1DF9AEF29385E8300C24641 /* NativeRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AEE29385E8300C24641 /* NativeRequestable.swift */; };
 		F1DF9AF129385EC900C24641 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AF029385EC900C24641 /* NetworkRequest.swift */; };
@@ -53,6 +54,7 @@
 		F1470DE8293688F200DDA249 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		F1A685A129376325001A86A7 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F1A685A429378D3E001A86A7 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		F1C6EFEC293A24E00054D783 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F1DF9ADC2937BB3F00C24641 /* AppChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		F1DF9AEE29385E8300C24641 /* NativeRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequestable.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		F1C6EFEB293A24CF0054D783 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F1C6EFEC293A24E00054D783 /* Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		F1DF9ADD2937BB3F00C24641 /* AppChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 		F1F4A868292EC8B9007D45C4 /* AppChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F1C6EFEB293A24CF0054D783 /* Location */,
 				F1A685AC2937A5BB001A86A7 /* Resources */,
 				F1A685A029376316001A86A7 /* AppTheme */,
 				F1470DE12935502800DDA249 /* Extras */,
@@ -388,6 +399,7 @@
 				F1470DE32935503D00DDA249 /* DateFormatter.swift in Sources */,
 				F1E578AF2938FEE900D9569F /* ForecastWeatherItemViewModel.swift in Sources */,
 				F1A685A229376325001A86A7 /* AppTheme.swift in Sources */,
+				F1C6EFED293A24E10054D783 /* Location.swift in Sources */,
 				F1F4A86C292EC8B9007D45C4 /* SceneDelegate.swift in Sources */,
 				F1470DD52933AC1E00DDA249 /* Coordinator.swift in Sources */,
 				F1DF9AF329385EEB00C24641 /* Requestable.swift in Sources */,

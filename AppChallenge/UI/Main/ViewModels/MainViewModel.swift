@@ -52,7 +52,6 @@ class MainViewModel: ObservableObject {
       } receiveValue: { [weak self] current in
           self?.showLoading.send(false)
           self?.currentWeatherItems.send(.fetchCurrentDidSucceed(currentWeather: current))
-          print("Current:\(current)")
       }.store(in: &subscriptions)
     }
     
@@ -89,8 +88,6 @@ class MainViewModel: ObservableObject {
             return "forest_sunny"
         }
     }
-    
-    
     
     enum CurrentCondition: String {
         case cloudy = "Clouds"
