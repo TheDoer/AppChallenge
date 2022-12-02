@@ -10,7 +10,6 @@ import UIKit
 import Combine
 
 class MainViewModel: ObservableObject {
-    private var currentWeather: CurrentWeatherResponse?
     
     let service = GeneralService(networkRequest: NativeRequestable())
     var subscriptions = Set<AnyCancellable>()
@@ -20,7 +19,8 @@ class MainViewModel: ObservableObject {
     
     //Focust
     let focustWeatherItems = CurrentValueSubject<[List] , Never>([List]())
-    //let errorFound = CurrentValueSubject<String, Never>(String())
+    let errorFound = CurrentValueSubject<String, Never>(String())
+    let showLoading = CurrentValueSubject<Bool, Never>(Bool())
     
     enum Input {
       case viewDidAppear
@@ -31,6 +31,7 @@ class MainViewModel: ObservableObject {
 
     }
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<CurrentWeatherItems, Never> {
+        showLoading.send(true)
       input.sink { [weak self] currentWeather in
         switch currentWeather {
         case .viewDidAppear:
@@ -41,12 +42,15 @@ class MainViewModel: ObservableObject {
     }
     
     private func handleGetCurrentWeather() {
+        
         service.getCurrentWeather()
             .sink { [weak self] completion in
         if case .failure(let error) = completion {
+            self?.showLoading.send(false)
           self?.currentWeatherItems.send(.fetchCurrentDidFail(error: error))
         }
       } receiveValue: { [weak self] current in
+          self?.showLoading.send(false)
           self?.currentWeatherItems.send(.fetchCurrentDidSucceed(currentWeather: current))
           print("Current:\(current)")
       }.store(in: &subscriptions)

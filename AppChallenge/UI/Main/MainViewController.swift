@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         currentweatherBind()
         focustWeatherBind()
+        loadingBindings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +73,18 @@ class MainViewController: UIViewController {
 
     }
     
+    func loadingBindings() {
+        mainViewModel.showLoading.sink { [unowned self] (_) in
+            DispatchQueue.main.async {
+                let isLoading = self.mainViewModel.showLoading.value
+                if isLoading {
+                    self.showSpinner()
+                } else {
+                    self.removeSpinner()
+                }
+            }
+        }.store(in: &subscriptions)
+    }
     
     func focustWeatherBind() {
         mainViewModel
@@ -83,7 +96,7 @@ class MainViewController: UIViewController {
                 self.focustTableView.reloadData()
                 self.focustTableView.beginUpdates()
                 self.focustTableView.endUpdates()
-                //stop spinner
+                
              print("Data:\(mainViewModel.focustWeatherItems.value)")
         }.store(in: &subscriptions)
     }
