@@ -67,6 +67,8 @@ class MainViewModel: ObservableObject {
                         print("nothing much to do here")
                 }
             } receiveValue: { (response) in
+                
+                
                  
                
                 let indexSet: IndexSet = self.createIndexSet(focustItemsCount: response.list!.count)
