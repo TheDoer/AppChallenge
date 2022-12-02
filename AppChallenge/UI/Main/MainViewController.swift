@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
                 self.backgroundImage.image = UIImage(named: self.mainViewModel.backgroundImageName(conditionName: current.weather?[0].main ?? "") )
                 
             case .fetchCurrentDidFail(_): break
-                
+                //Send error via alert
         }
       }.store(in: &subscriptions)
 

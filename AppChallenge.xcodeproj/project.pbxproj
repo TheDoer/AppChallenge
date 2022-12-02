@@ -17,6 +17,7 @@
 		F1A685A229376325001A86A7 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A129376325001A86A7 /* AppTheme.swift */; };
 		F1A685A529378D3E001A86A7 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A685A429378D3E001A86A7 /* Alerts.swift */; };
 		F1C6EFED293A24E10054D783 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6EFEC293A24E00054D783 /* Location.swift */; };
+		F1C6EFF1293A3B580054D783 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6EFF0293A3B580054D783 /* LocationService.swift */; };
 		F1DF9AEA2937BDAC00C24641 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */; };
 		F1DF9AEF29385E8300C24641 /* NativeRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AEE29385E8300C24641 /* NativeRequestable.swift */; };
 		F1DF9AF129385EC900C24641 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF9AF029385EC900C24641 /* NetworkRequest.swift */; };
@@ -55,6 +56,7 @@
 		F1A685A129376325001A86A7 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F1A685A429378D3E001A86A7 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F1C6EFEC293A24E00054D783 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F1C6EFF0293A3B580054D783 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F1DF9ADC2937BB3F00C24641 /* AppChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DF9AE92937BDAC00C24641 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		F1DF9AEE29385E8300C24641 /* NativeRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequestable.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C6EFEC293A24E00054D783 /* Location.swift */,
+				F1C6EFF0293A3B580054D783 /* LocationService.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				F1F4A86E292EC8B9007D45C4 /* MainViewController.swift in Sources */,
 				F1DF9AEF29385E8300C24641 /* NativeRequestable.swift in Sources */,
 				F1F4A86A292EC8B9007D45C4 /* AppDelegate.swift in Sources */,
+				F1C6EFF1293A3B580054D783 /* LocationService.swift in Sources */,
 				F1DF9AFB29389F9300C24641 /* MainViewModel.swift in Sources */,
 				F1DF9AEA2937BDAC00C24641 /* NetworkServiceProtocol.swift in Sources */,
 				F1470DE52935D06700DDA249 /* RoundNumber.swift in Sources */,
