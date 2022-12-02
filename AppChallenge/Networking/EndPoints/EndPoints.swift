@@ -49,10 +49,10 @@ enum GeneralEndpoints {
     func getURL() -> String {
         switch self {
             case  .getCurrentWeather:
-                return "https://api.openweathermap.org/data/2.5/weather?lat=39.118225&lon=-94.634805&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
+                return "https://api.openweathermap.org/data/2.5/weather?lat=61.204425&lon=97.550781&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
             
             case .getFocustWeather:
-                return "https://api.openweathermap.org/data/2.5/weather?lat=39.118225&lon=-94.634805&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
+                return "https://api.openweathermap.org/data/2.5/forecast?lat=61.204425&lon=97.550781&appid=87461c4c288bfbf9413372ba35e10d7c&units=metric"
         }
     }
 }

@@ -48,6 +48,7 @@ class MainViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] current in
           self?.currentWeatherItems.send(.fetchCurrentDidSucceed(currentWeather: current))
+          print("Current:\(current)")
       }.store(in: &subscriptions)
     }
     
@@ -66,22 +67,22 @@ class MainViewModel: ObservableObject {
             }.store(in: &subscriptions)
     }
     
-    func backgroundImageName() -> String {
-        if let currentWeather = currentWeather, let condition = CurrentCondition(rawValue: currentWeather.weather?[0].main ?? "forest_rainy") {
-            return condition.backgroundImageName
-        }
-        else {
-            return "forest_rainy"
-        }
-    }
     
-    
-    func backgroundColorHexValue() -> Int {
-        if let currentWeather = currentWeather, let condition = CurrentCondition(rawValue: currentWeather.weather?[0].main ?? "Clouds") {
+    func backgroundColorHexValue(conditionName: String) -> Int {
+        if let condition = CurrentCondition(rawValue: conditionName) {
             return condition.backgroundColorHexValue
         }
         else {
             return 0x57575D
+        }
+    }
+    
+    func backgroundImageName(conditionName: String) -> String {
+        if let condition = CurrentCondition(rawValue: conditionName) {
+            return condition.backgroundImageName
+        }
+        else {
+            return "forest_sunny"
         }
     }
     

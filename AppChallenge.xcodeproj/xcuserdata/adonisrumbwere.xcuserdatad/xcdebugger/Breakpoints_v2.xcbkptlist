@@ -13,9 +13,9 @@
             continueAfterRunningActions = "No"
             filePath = "AppChallenge/UI/Main/ViewModels/ForecastWeatherItemViewModel.swift"
             startingColumnNumber = "10"
-            endingColumnNumber = "30"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            endingColumnNumber = "10"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "conditionImageName()"
             landmarkType = "7">
          </BreakpointContent>

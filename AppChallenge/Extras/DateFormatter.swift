@@ -17,12 +17,14 @@ extension JSONDecoder {
    
 }
 
-extension Date {
-    func dayOfWeek() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self).capitalized
+func getDayForDate(_ date: Date?) -> String {
+    guard let inputDate = date else {
+        return ""
     }
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "EEEE" //Saturday, Mar 12
+    return formatter.string(from: inputDate)
 }
 
 func generateCurrentTimeStamp () -> String {

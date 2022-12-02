@@ -15,9 +15,6 @@ struct ForecastWeatherItemViewModel {
     
     private var forecastWeatherItem: List
     
-    var day: String {
-        return (forecastWeatherItem.dtTxt?.dayOfWeek())!
-    }
     
     var temperature: String {
         return (forecastWeatherItem.main?.temp?.toStringWithZeroDecimalPlaces() ?? "0") + "°"

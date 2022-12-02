@@ -21,7 +21,7 @@ class GeneralService: generalServiceable {
     }
     
     func getCurrentWeather() -> AnyPublisher<CurrentWeatherResponse, NetworkError> {
-        let endpoint = GeneralEndpoints.getFocustWeather
+        let endpoint = GeneralEndpoints.getCurrentWeather
         let request = endpoint.createRequest()
         return self.networkRequest.request(request)
     }
