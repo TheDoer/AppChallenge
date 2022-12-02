@@ -73,8 +73,11 @@ class MainViewController: UIViewController {
                 self.view.backgroundColor = UIColor(rgb: self.mainViewModel.backgroundColorHexValue(conditionName: current.weather?[0].main ?? "") )
                 self.backgroundImage.image = UIImage(named: self.mainViewModel.backgroundImageName(conditionName: current.weather?[0].main ?? "") )
                 
-            case .fetchCurrentDidFail(_): break
-                //Send error via alert
+            case .fetchCurrentDidFail( let error):
+                
+                let alert = UIAlertController(title: "Error", message: "Something went wrong:\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                self.present(alert, animated: true, completion: nil)
+                
         }
       }.store(in: &subscriptions)
 
