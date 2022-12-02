@@ -13,6 +13,7 @@ class MainViewModel: ObservableObject {
     
     let service = GeneralService(networkRequest: NativeRequestable())
     var subscriptions = Set<AnyCancellable>()
+    private var forecastWeather = [List]()
     
     //Current
     private let currentWeatherItems: PassthroughSubject<CurrentWeatherItems, Never> = .init()
@@ -66,8 +67,26 @@ class MainViewModel: ObservableObject {
                         print("nothing much to do here")
                 }
             } receiveValue: { (response) in
-                self.focustWeatherItems.send(response.list ?? [])
+                 
+               
+                let indexSet: IndexSet = self.createIndexSet(focustItemsCount: response.list!.count)
+                self.forecastWeather = indexSet.map { response.list![$0] }
+                
+                self.focustWeatherItems.send(self.forecastWeather)
             }.store(in: &subscriptions)
+    }
+    
+    private func createIndexSet(focustItemsCount: Int) -> IndexSet {
+        let move = (focustItemsCount) / 5
+        var value = move
+        var array = [Int]()
+        
+        for _ in 0..<5 {
+            array.append(value-1)
+            value = value + move
+        }
+        
+        return IndexSet(array)
     }
     
     
